@@ -1,0 +1,16 @@
+FROM node:18-alpine as build
+
+RUN npm i -g pnpm
+
+WORKDIR /app
+COPY package.json /app
+RUN pnpm i
+
+COPY . /app
+
+EXPOSE 3000/tcp
+
+CMD ["pnpm", "dev"]
+
+
+
