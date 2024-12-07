@@ -13,16 +13,73 @@
 const route = useRoute()
 
 const routeSlug = route.params.slug?.[0] || 'null'
-console.log(routeSlug);
 
 const { data: page } = await useAsyncData(`resource-page-${routeSlug}`, () => {
     return queryCollection('resources')
         .where('stem', '=', `resources/${routeSlug}`).first()
 })
 
-useSeoMeta({
-    title: page.value?.title,
-    description: page.value?.description
+const seo= {
+    title: page.value?.title || `The best Resource for ${routeSlug}`,
+    description: page.value?.description || `The best Resource for ${routeSlug}`,
+    meta: [
+        {
+            hid: 'og:title',
+            name: 'og:title',
+            content: page.value?.title || `The best Resource for ${routeSlug}`,
+        },
+        {
+            hid: 'og:description',
+            name: 'og:description',
+            content: page.value?.description || `The best Resource for ${routeSlug}`,
+        },
+        {
+            hid: 'og:image',
+            name: 'og:image',
+            content: '/logo.png',
+        },
+        {
+            hid: 'og:url',
+            name: 'og:url',
+            content: `https://must-know-resources-for-programmers.com/resource/${routeSlug}`,
+        },
+        {
+            hid: 'twitter:title',
+            name: 'twitter:title',
+            content: page.value?.title || `The best Resource for ${routeSlug}`,
+        },
+        {
+            hid: 'twitter:description',
+            name: 'twitter:description',
+            content: page.value?.description || `The best Resource for ${routeSlug}`,
+        },
+        {
+            hid: 'twitter:image',
+            name: 'twitter:image',
+            content: '/logo.png',
+        },
+        {
+            hid: 'twitter:url',
+            name: 'twitter:url',
+            content: `https://must-know-resources-for-programmers.com/resource/${routeSlug}`,
+        },
+        {
+            hid: 'twitter:card',
+            name: 'twitter:card',
+            content: 'summary_large_image',
+        },
+        {
+            hid: 'twitter:site',
+            name: 'twitter:site',
+            content: '@leamsigc',
+        },
+    ],
+}
+
+useHead(seo)
+defineOgImageComponent('BlogOgImage', {
+    ...seo,
+  headline: 'Resources',
 })
 </script>
 

@@ -35,7 +35,7 @@ const { data: site } = await useAsyncData("meta_site", () =>
     <header
       class="w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-2xl mx-auto sticky z-40  flex justify-between items-center p-2 ">
       <NuxtLink v-if="site?.siteMeta" href="/" class="font-bold text-lg flex items-center" aria-label="Home">
-        <NuxtImg :src="site?.siteMeta.logo" :alt="site?.siteMeta.logoAlt" class="w-40 rounded-full" width="160"
+        <NuxtImg :src="site?.siteMeta.logo" :alt="site?.siteMeta.logoAlt" class="w-40 rounded-full max-h-16" width="160"
           height="60" />
       </NuxtLink>
       <!-- Mobile -->

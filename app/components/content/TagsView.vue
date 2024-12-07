@@ -12,7 +12,6 @@
  */
 
 const { data } = await useAsyncData('tags', () => queryCollection('tags').all());
-console.log(data.value);
 
 </script>
 

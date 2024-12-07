@@ -28,6 +28,18 @@ export const collections = {
       layout: z.enum(['default', 'blog-layout']).default('default'),
       title: z.string(),
       description: z.string(),
+      head: z.object({
+        meta: z.array(z.object({
+          name: z.string(),
+          content: z.string()
+        })),
+        htmlAttrs: z.object({
+          lang: z.string()
+        }).optional(),
+        bodyAttrs: z.object({
+          class: z.string()
+        }).optional(),
+      })
     })
   }),
   navigation: defineCollection({

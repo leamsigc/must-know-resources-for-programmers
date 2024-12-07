@@ -18,12 +18,70 @@ const { data: page } = await useAsyncData(`tag-${route.params.slug}`, () =>
 const { data: resources } = await useAsyncData(`resources-${route.params.slug}`, () =>
     queryCollection('resources').where('tag', '=', route.params.slug).all()
 );
+const seo= {
+    title: page.value?.label || 'Here are the most popular resources for developers',
+    description: page.value?.label || 'Here are the most popular resources for developers',
+    meta: [
+        {
+            hid: 'og:title',
+            name: 'og:title',
+            content: page.value?.label || 'Here are the most popular resources for developers',
+        },
+        {
+            hid: 'og:description',
+            name: 'og:description',
+            content: page.value?.label || 'Here are the most popular resources for developers',
+        },
+        {
+            hid: 'og:image',
+            name: 'og:image',
+            content: '/logo.png',
+        },
+        {
+            hid: 'og:url',
+            name: 'og:url',
+            content: `https://must-know-resources-for-programmers.com/tags/${route.params.slug}`,
+        },
+        {
+            hid: 'twitter:title',
+            name: 'twitter:title',
+            content: page.value?.label || 'Here are the most popular resources for developers',
+        },
+        {
+            hid: 'twitter:description',
+            name: 'twitter:description',
+            content: page.value?.label || 'Here are the most popular resources for developers',
+        },
+        {
+            hid: 'twitter:image',
+            name: 'twitter:image',
+            content: '/logo.png',
+        },
+        {
+            hid: 'twitter:url',
+            name: 'twitter:url',
+            content: `https://must-know-resources-for-programmers.com/tags/${route.params.slug}`,
+        },
+        {
+            hid: 'twitter:card',
+            name: 'twitter:card',
+            content: 'summary_large_image',
+        },
+        {
+            hid: 'twitter:site',
+            name: 'twitter:site',
+            content: '@leamsigc',
+        },
+    ],
+}
 
-
-useSeoMeta({
-    title: `Best resources to learn ${page.value?.label}`,
-    description: `Best resources to learn ${page.value?.label} for developers.`
+useHead(seo)
+defineOgImageComponent('BlogOgImage', {
+    ...seo,
+  headline: 'Tags',
 })
+
+
 const convertTitleToSlug = (title: string) => {
     return title.toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')

@@ -23,26 +23,11 @@ const layout = computed(() => {
 })
 
 setPageLayout(layout.value)
-
-useSeoMeta({
-  title: page.value?.title,
-  description: page.value?.description,
-  ogTitle: page.value?.title,
-  ogDescription: page.value?.description,
-  ...page.value?.seo ? page.value.seo : {}
-}
-)
-useHead({
-  htmlAttrs: {
-    lang: 'en'
-  },
-  link: [
-    {
-      rel: 'icon',
-      type: 'image/png',
-      href: '/favicon.png'
-    }
-  ]
+useHead(page.value?.head || {})
+defineOgImageComponent('BlogOgImage', {
+  title: `${page.value?.title.slice(0, 20)}... 👋`,
+  description: `${page.value?.description.slice(0, 100)}...`,
+  headline: 'Resources',
 })
 </script>
 

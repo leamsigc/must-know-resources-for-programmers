@@ -10,10 +10,10 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
   devtools: { enabled: true },
   modules: [
-    "@nuxtjs/tailwindcss",
-    // "@nuxtjs/seo",
-    "@vueuse/nuxt",
     "@nuxt/content",
+    '@nuxthq/studio',
+    "@nuxtjs/tailwindcss",
+    "@vueuse/nuxt",
     "@formkit/nuxt",
     "shadcn-nuxt",
     "@nuxt/eslint",
@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     '@unlighthouse/nuxt',
     "@nuxt/fonts",
     '@vueuse/motion/nuxt',
-    '@nuxthq/studio'
+    "@nuxtjs/seo",
   ],
   formkit: {
     // autoImport: true,
@@ -55,25 +55,40 @@ export default defineNuxtConfig({
       pathPrefix: false
     }
   ],
-  // site: {
-  //   url: 'https://must-know-resources-for-programmers.giessen.dev',
-  //   name: 'Nuxt setup with Better Auth module |  Drizzle + Nuxt + Tailwind CSS + content + FormKit',
-  //   description: 'How to get started with Nuxt 4 and Better Auth| Step by step tutorial.',
-  //   defaultLocale: 'en', // not needed if you have @nuxtjs/i18n installed
-  // },
+  site: {
+    url: 'https://must-know-resources-for-programmers.giessen.dev',
+    name: 'Must Know Resources for Programmers by Giessen Dev',
+    description: 'A comprehensive collection of essential resources, tools, and guides for programmers and developers at all skill levels.',
+  },
+  sitemap: {
+    enabled: false
+  },
+  robots: {
+    enabled: false
+  },
+  linkChecker: {
+    enabled: false
+  },
+  seo: {
+    meta: {
+      description: 'Must Know Resources for Programmers by Giessen Dev- A comprehensive collection of essential resources, tools, and guides for programmers and developers at all skill levels.',
+      themeColor: [
+        { content: '#18181b', media: '(prefers-color-scheme: dark)' },
+        { content: 'white', media: '(prefers-color-scheme: light)' },
+      ],
+    },
+  },
   image: {
     quality: 75,
     format: ['webp'],
   },
-  // ogImage: {
-  //   componentOptions: {
-  //     global: true
-  //   }
-  // },
+  ogImage: {
+    strictNuxtContentPaths: true,
+    componentOptions: {
+      global: true
+    }
+  },
   content: {
-    studio: {
-      enabled: true
-    },
     build: {
       markdown: {
         highlight: {

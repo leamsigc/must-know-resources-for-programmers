@@ -30,7 +30,6 @@ const invalidUiInputForm = ref<boolean>(false);
 
 const handleSubmit = () => {
   const { firstName, lastName, email, subject, message } = contactForm;
-  console.log(contactForm);
 
   const mailToLink = `mailto:leomirandadev@gmail.com?subject=${subject}&body=Hello I am ${firstName} ${lastName}, my Email is ${email}. %0D%0A${message}`;
 
