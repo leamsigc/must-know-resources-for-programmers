@@ -1,35 +1,36 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { cn } from '~~/lib/utils'
-import { Separator, type SeparatorProps } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
 
-const props = defineProps<
-  SeparatorProps & { class?: HTMLAttributes['class'], label?: string }
->()
-
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+withDefaults(
+  defineProps<{
+    showBuckle?: boolean
+    direction?: 'top' | 'bottom'
+  }>(),
+  {
+    showBuckle: false,
+    direction: 'bottom'
+  }
+)
 </script>
 
 <template>
-  <Separator
-    v-bind="delegatedProps"
-    :class="
-      cn(
-        'shrink-0 bg-border relative',
-        props.orientation === 'vertical' ? 'w-px h-full' : 'h-px w-full',
-        props.class,
-      )
-    "
-  >
-    <span
-      v-if="props.label"
-      :class="cn('text-xs text-muted-foreground bg-background absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center',
-                 props.orientation === 'vertical' ? 'w-[1px] px-1 py-2' : 'h-[1px] py-1 px-2',
-      )"
-    >{{ props.label }}</span>
-  </Separator>
+  <section class="relative py-32 w-full">
+    <div class="absolute left-0 h-full w-full" :class="cn(
+      direction === 'bottom'
+        ? 'top-1/2 dark:bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.neutral[950]/5%),transparent)]'
+        : '-top-1/2 dark:bg-[radial-gradient(35%_128px_at_50%_100%,theme(backgroundColor.white/8%),transparent)] bg-[radial-gradient(35%_128px_at_50%_100%,theme(backgroundColor.neutral[950]/5%),transparent)]'
+    )
+      "></div>
+    <!-- the line -->
+    <section
+      class="absolute inset-x-12 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent dark:via-white/30 via-neutral-950/30 to-transparent" />
+
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-neutral-950 p-1.5"
+      v-if="showBuckle">
+      <div class="h-1.5 w-8 rounded-lg bg-neutral-950/90 dark:bg-white">
+      </div>
+    </div>
+  </section>
 </template>
+
+<style scoped></style>

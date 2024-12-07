@@ -12,7 +12,9 @@
  */
 const router = useRouter();
 const { data } = await useAsyncData(`${router.currentRoute.value.path}`, () =>
-    queryContent(router.currentRoute.value.path).only(['title', 'description', 'image', 'publishedAt', 'author']).findOne())
+    queryCollection('blog').path(router.currentRoute.value.path)
+        .select('title', 'description', 'image', 'publishedAt', 'author')
+        .first())
 </script>
 
 <template>
@@ -28,20 +30,26 @@ const { data } = await useAsyncData(`${router.currentRoute.value.path}`, () =>
                     </h1>
                     <div class="flex flex-col md:flex-row gap-3 md:gap-5">
                         <div class="flex items-center space-x-2.5">
-                            <UiAvatar>
+                            <UiAvatar size="base">
                                 <UiAvatarImage :src="data.author.avatar" :alt="data.author.name" />
                                 <UiAvatarFallback>{{ data.author.name.slice(0, 1) }}</UiAvatarFallback>
                             </UiAvatar>
-                            <span class="dark:text-white/70">{{ data.author.name }}</span>
+                            <section class="grid">
+                                <span class="dark:text-white/70">{{ data.author.name }}</span>
+                                <span class="dark:text-white/30 text-sm">{{ data.author.role }}</span>
+                                <NuxtLink :href="data.author.social" target="_blank" class="dark:text-white/30 text-sm">
+                                    {{ data.author.social }}
+                                </NuxtLink>
+                            </section>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="mx-auto max-w-5xl px-8 mb-10">
+        <div class="mx-auto max-w-5xl px-8 my-10 pb-10">
             <div
                 class="object-contain bg-[#26303B] aspect-video rounded-xl overflow-hidden flex items-center justify-center">
-                <NuxtPicture :alt="data.title" loading="eager" width="1080" height="720" class="w-full h-full"
+                <NuxtPicture :alt="data.title" loading="eager" width="1080" height="900" class="w-full h-full"
                     style="color: transparent;" :src="data.image.src" />
             </div>
         </div>

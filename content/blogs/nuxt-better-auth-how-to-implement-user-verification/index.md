@@ -53,12 +53,11 @@ ogImage:
     readingMins: 5
 publishedAt: 2024-10-02
 ---
+
 ::Blog-hero
 ::
 
-<div class="max-w-3xl mx-auto">
-  
-  ### After user sing up, he can verify his email address by clicking on the link in his email.
+### After user sing up, he can verify his email address by clicking on the link in his email.
 
  - But we need to trigger that email verification.
 
@@ -140,5 +139,3 @@ and let the user know that a new registration attempt has been made.
 The email for the verification is the following:
 
 ![Email verification screenshot](/media/email-screenshot.png)
-
-</div> 

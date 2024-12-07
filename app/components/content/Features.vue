@@ -97,20 +97,20 @@ const { list } = toRefs(props);
 <template>
   <section id="features" class="container py-24 sm:py-32">
     <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-      <ContentSlot :use="$slots.title" unwrap="p"> Features </ContentSlot>
+      <slot name="title"> Features </slot>
     </h2>
 
     <h3 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      <ContentSlot :use="$slots.subtitle" unwrap="p">
+      <slot name="subtitle">
         What Makes Us Different
-      </ContentSlot>
+      </slot>
     </h3>
 
     <h4 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-      <ContentSlot :use="$slots.description" unwrap="p">
+      <slot name="description">
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugiat, odit
         similique quasi sint reiciendis quidem iure veritatis optio facere tenetur.
-      </ContentSlot>
+      </slot>
     </h4>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -133,10 +133,7 @@ const { list } = toRefs(props);
       </div>
     </div>
   </section>
-  <div
-    id="container"
-    class="container w-screen min-h-screen p-12 grid grid-cols-12 gap-6"
-  >
+  <div id="container" class="container w-screen min-h-screen p-12 grid grid-cols-12 gap-6">
     <ShinyCard class="h-80 col-span-8" />
     <ShinyCard class="h-80 col-span-4" />
     <ShinyCard class="h-80 col-span-6" />

@@ -29,24 +29,17 @@ const cssVars = computed(() => ({
 </script>
 
 <template>
-  <div
-    ref="target"
-    :style="cssVars"
-    :class="['rounded-[15px] p-[2px] shine relative', props.class || '']"
-  >
+  <div ref="target" :style="cssVars" :class="['rounded-[15px] p-[2px] shine relative', props.class || '']">
     <div
-      class="rounded-[13px] w-full h-full bg-gradient-to-b from-neutral-800/95 to-neutral-950/5 bg-neutral-950/80 absolute"
-      :class="props.showBg ? 'opacity-5 dark:opacity-100' : 'opacity-5'"
-    />
+      class="rounded-[13px] w-full h-full bg-gradient-to-b from-neutral-800/95 to-neutral-950/5 bg-neutral-950/80 absolute -z-10 pointer-events-none"
+      :class="props.showBg ? 'opacity-5 dark:opacity-100' : 'opacity-5'" />
     <slot />
   </div>
 </template>
 <style scoped>
 .shine {
-  background-image: radial-gradient(
-    300px circle at var(--x) var(--y),
-    hsl(var(--primary)) 0,
-    transparent 100%
-  );
+  background-image: radial-gradient(300px circle at var(--x) var(--y),
+      hsl(var(--primary)) 0,
+      transparent 100%);
 }
 </style>

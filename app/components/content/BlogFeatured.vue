@@ -12,26 +12,27 @@
  */
 // Get the articles that have the flag of featured to true from nuxt content
 const { data: featuredArticles } = await useAsyncData("featured_posts", () =>
-  queryContent("/blogs/").where({ featured: true })
-    .only(['_path', 'title', 'tags', 'publishedAt', 'image', 'author'])
-    .sort({ publishedAt: -1 })
-    .limit(4)
-    .find()
+  queryCollection("blog")
+    .where('featured', '=', 1)
+    .select('path', 'title', 'tags', 'publishedAt', 'image', 'author')
+    .order('publishedAt', 'DESC')
+    .all()
 );
+
 </script>
 
 <template>
   <section class="grid gap-6 md:grid-cols-2 md:gap-12 mb-6 md:mb-12">
-    <div v-for="article in featuredArticles" :key="article._path"
+    <div v-for="article in featuredArticles" :key="article.path"
       class="group flex flex-col space-y-3 md:space-y-6  transition-transform">
       <NuxtLink
         class="object-contain aspect-video rounded-xl overflow-hidden flex items-center justify-center transition-all dark:group-hover:opacity-80 hover:hue-rotate-90"
-        :href="article._path">
+        :href="article.path">
         <NuxtPicture loading="lazy" class="w-full h-full" :src="article.image.src" :alt="article.image.alt" width="600"
           height="300" />
       </NuxtLink>
       <div class="space-y-3 md:space-y-5 pr-3 flex-1">
-        <NuxtLink :href="article._path">
+        <NuxtLink :href="article.path">
           <h5 class="group-hover:text-primary transition-colors text-2xl font-semibold leading-tight">
             {{ article.title }}
           </h5>
@@ -49,7 +50,7 @@ const { data: featuredArticles } = await useAsyncData("featured_posts", () =>
                   {{ article.author.name }}
                 </span>
                 <span class="text-xs dark:text-white/60">
-                  {{ article.author.role }}
+                  {{ article.author.social }}
                 </span>
               </NuxtLink>
             </div>

@@ -1,0 +1,5 @@
+title: ":snowman: Possibly the smallest compiler ever"
+link: "https://github.com/thejameskyle/the-super-tiny-compiler"
+description: This is an ultra-simplified example of all the major pieces of a modern compiler written in easy to read JavaScript.
+section: 🔄 Building a Simple Compiler/Interpreter
+tag: building-a-simple-compiler-interpreter

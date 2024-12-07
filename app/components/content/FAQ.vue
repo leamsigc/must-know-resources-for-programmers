@@ -57,20 +57,16 @@ const { list } = toRefs(props);
   <section id="faq" class="container md:w-[700px] py-24 sm:py-32">
     <div class="text-center mb-8">
       <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-        <ContentSlot :use="$slots.title" unwrap="p"> FAQS </ContentSlot>
+        <slot name="title"> FAQS </slot>
       </h2>
 
       <h3 class="text-3xl md:text-4xl text-center font-bold">
-        <ContentSlot :use="$slots.subtitle" unwrap="p"> Common Questions </ContentSlot>
+        <slot name="subtitle"> Common Questions </slot>
       </h3>
     </div>
 
     <UiAccordion type="single" collapsible class="AccordionRoot">
-      <UiAccordionItem
-        v-for="{ question, answer, value } in list"
-        :key="value"
-        :value="value"
-      >
+      <UiAccordionItem v-for="{ question, answer, value } in list" :key="value" :value="value">
         <UiAccordionTrigger class="text-left"> {{ question }} </UiAccordionTrigger>
 
         <UiAccordionContent>{{ answer }}</UiAccordionContent>

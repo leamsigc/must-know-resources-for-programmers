@@ -58,17 +58,17 @@ const { list } = toRefs(props);
 <template>
   <section id="services" class="container py-24 sm:py-32">
     <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-      <ContentSlot :use="$slots.title" unwrap="p"> Services </ContentSlot>
+      <slot name="title"> Services </slot>
     </h2>
 
     <h3 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      <ContentSlot :use="$slots.subtitle" unwrap="p"> Grow Your Business </ContentSlot>
+      <slot name="subtitle"> Grow Your Business </slot>
     </h3>
     <h4 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-      <ContentSlot :use="$slots.description" unwrap="p">
+      <slot name="description">
         From marketing and sales to operations and strategy, we have the expertise to help
         you achieve your goals.
-      </ContentSlot>
+      </slot>
     </h4>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" />
 
@@ -79,12 +79,7 @@ const { list } = toRefs(props);
             <UiCardTitle>{{ title }}</UiCardTitle>
             <UiCardDescription>{{ description }}</UiCardDescription>
           </UiCardHeader>
-          <Badge
-            v-if="pro === ProService.YES"
-            variant="secondary"
-            class="absolute -top-2 -right-3"
-            >PRO</Badge
-          >
+          <Badge v-if="pro === ProService.YES" variant="secondary" class="absolute -top-2 -right-3">PRO</Badge>
         </UiCard>
       </div>
     </div>

@@ -81,28 +81,24 @@ const { plans } = toRefs(props);
 <template>
   <section class="container py-24 sm:py-32">
     <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-      <ContentSlot :use="$slots.title" unwrap="p"> Pricing </ContentSlot>
+      <slot name="title"> Pricing </slot>
     </h2>
 
     <h3 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      <ContentSlot :use="$slots.subtitle" unwrap="p"> Get unlimitted access </ContentSlot>
+      <slot name="subtitle"> Get unlimitted access </slot>
     </h3>
 
     <h4 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground pb-14">
-      <ContentSlot :use="$slots.description" unwrap="p">
+      <slot name="description">
         Lorem ipsum dolor sit amet consectetur adipisicing reiciendis.
-      </ContentSlot>
+      </slot>
     </h4>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
-      <UiCard
-        v-for="{ title, popular, price, description, buttonText, benefitList } in plans"
-        :key="title"
-        :class="{
-          'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]':
-            popular === PopularPlan?.YES,
-        }"
-      >
+      <UiCard v-for="{ title, popular, price, description, buttonText, benefitList } in plans" :key="title" :class="{
+        'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]':
+          popular === PopularPlan?.YES,
+      }">
         <UiCardHeader>
           <UiCardTitle class="pb-2">
             {{ title }}
@@ -126,10 +122,7 @@ const { plans } = toRefs(props);
         </UiCardContent>
 
         <UiCardFooter>
-          <UiButton
-            :variant="popular === PopularPlan?.NO ? 'secondary' : 'default'"
-            class="w-full"
-          >
+          <UiButton :variant="popular === PopularPlan?.NO ? 'secondary' : 'default'" class="w-full">
             {{ buttonText }}
           </UiButton>
         </UiCardFooter>

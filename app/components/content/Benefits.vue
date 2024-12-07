@@ -73,39 +73,33 @@ const iconMap: Record<
     <div class="grid lg:grid-cols-2 place-items-center lg:gap-24">
       <div>
         <h2 class="text-lg text-primary mb-2 tracking-wider">
-          <ContentSlot :use="$slots.title" unwrap="p"> Benefits </ContentSlot>
+          <slot name="title"> Benefits </slot>
         </h2>
 
         <h3 class="text-3xl md:text-4xl font-bold mb-4">
-          <ContentSlot :use="$slots.subtitle" unwrap="p">
+          <slot name="subtitle">
             Your Shortcut to Success
-          </ContentSlot>
+          </slot>
         </h3>
         <p class="text-xl text-muted-foreground mb-8">
-          <ContentSlot :use="$slots.description" unwrap="p">
+          <slot name="description">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non ducimus
             reprehenderit architecto rerum similique facere odit deleniti necessitatibus
             quo quae.
-          </ContentSlot>
+          </slot>
         </p>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-4 w-full">
-        <ShinyCard
-          v-for="({ icon, title, description }, index) in list"
-          :key="title"
-          :show-bg="false"
-        >
+        <ShinyCard v-for="({ icon, title, description }, index) in list" :key="title" :show-bg="false">
           <UiCard
-            class="bg-muted/50 dark:bg-card hover:bg-background dark:hover:bg-background transition-all delay-75 group/number"
-          >
+            class="bg-muted/50 dark:bg-card hover:bg-background dark:hover:bg-background transition-all delay-75 group/number">
             <UiCardHeader>
               <div class="flex justify-between">
                 <component class="size-8 mb-6 text-primary" :is="iconMap[icon]" />
 
                 <span
-                  class="text-5xl text-muted-foreground/15 font-medium transition-all delay-75 group-hover/number:text-muted-foreground/30"
-                >
+                  class="text-5xl text-muted-foreground/15 font-medium transition-all delay-75 group-hover/number:text-muted-foreground/30">
                   0{{ index + 1 }}
                 </span>
               </div>

@@ -26,31 +26,29 @@ const { icon, url, label } = toRefs(props);
 </script>
 <template>
   <section id="community" class="py-12">
-    <UiSeparator />
-    <div class="container py-20 sm:py-20">
+    <UiSeparator show-buckle />
+    <div class="container ">
       <div class="lg:w-[60%] mx-auto">
-        <UiCard
-          class="bg-background shadow-none text-center flex flex-col items-center justify-center border-0"
-        >
+        <UiCard class="bg-background shadow-none text-center flex flex-col items-center justify-center border-0">
           <UiCardHeader>
             <UiCardTitle class="text-4xl md:text-5xl font-bold">
-              <Icon class="w-20 h-20 m-auto mb-4" :name="icon" />
-              <ContentSlot :use="$slots.title" unwrap="p">
+              <slot name="title">
                 Ready to join this
                 <span class="gradient-text"> Community? </span>
-              </ContentSlot>
+              </slot>
             </UiCardTitle>
           </UiCardHeader>
           <UiCardContent class="lg:w-[80%] text-xl text-muted-foreground">
-            <ContentSlot :use="$slots.content" unwrap="p">
+            <slot name="content">
               Join our vibrant Discord community! Connect, share, and grow with
               like-minded enthusiasts. Click to dive in! 🚀
-            </ContentSlot>
+            </slot>
           </UiCardContent>
 
           <UiCardFooter>
             <UiButton as-child>
               <NuxtLink :href="url" target="_blank">
+                <Icon class="size-6 mr-2" :name="icon" />
                 {{ label }}
               </NuxtLink>
             </UiButton>
@@ -58,6 +56,6 @@ const { icon, url, label } = toRefs(props);
         </UiCard>
       </div>
     </div>
-    <UiSeparator />
+    <UiSeparator show-buckle />
   </section>
 </template>

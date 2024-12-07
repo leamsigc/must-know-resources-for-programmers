@@ -11,10 +11,12 @@
  * @todo [✔] Update the typescript.
  */
 const { data } = await useAsyncData("footer_links", () =>
-  queryContent("/").where({ _partial: true, title: "nav" })
-    .only(["footerLinks", "logo", "logoAlt"])
-    .findOne()
+  queryCollection("navigation").where('stem', '=', 'nav/links').first()
 );
+const { data: site } = await useAsyncData("meta_site", () =>
+  queryCollection("navigation").where('stem', '=', 'nav/siteMeta').first()
+);
+
 </script>
 
 <template>
@@ -23,13 +25,14 @@ const { data } = await useAsyncData("footer_links", () =>
       <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
         <div class="col-span-full xl:col-span-2">
           <a href="#" class="flex font-bold items-center">
-            <NuxtLink v-if="data" href="/" class="font-bold text-lg flex items-center">
-              <NuxtImg :src="data.logo" :alt="data.logoAlt" class="w-64 rounded-full" width="160" height="60" />
+            <NuxtLink v-if="site" href="/" class="font-bold text-lg flex items-center">
+              <NuxtImg :src="site.siteMeta.logo" :alt="site.siteMeta.logoAlt" class="w-64 rounded-full" width="160"
+                height="60" />
             </NuxtLink>
           </a>
         </div>
 
-        <div class="flex flex-col gap-2 " v-for="{ title, links } in data.footerLinks" :key="title">
+        <div class="flex flex-col gap-2 " v-for="{ title, links } in data?.footerLinks" :key="title">
           <h3 class="font-bold text-lg">{{ title }}</h3>
           <div v-for="{ name, url, icon } in links" :key="name">
             <NuxtLink :href="url" class="opacity-60 hover:opacity-100" :arial-label="name" :title="name">

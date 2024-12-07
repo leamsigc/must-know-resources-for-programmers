@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <UiButton v-bind="props">
-    <ContentSlot :use="$slots.default" unwrap="p" />
+    <slot name="default" />
   </UiButton>
 </template>
 <style scoped></style>

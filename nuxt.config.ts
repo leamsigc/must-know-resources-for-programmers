@@ -1,5 +1,4 @@
-import { OgImage } from './.nuxt/components.d';
-// https://nuxt.com/docs/api/configuration/nuxt-config
+
 
 import { checkEnv } from "./config/env.config"
 import { env } from "node:process";
@@ -12,11 +11,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     "@nuxtjs/tailwindcss",
-    "@nuxtjs/seo",
+    // "@nuxtjs/seo",
     "@vueuse/nuxt",
     "@nuxt/content",
     "@formkit/nuxt",
-    "nuxt-auth-utils",
     "shadcn-nuxt",
     "@nuxt/eslint",
     "radix-vue/nuxt",
@@ -24,8 +22,8 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxt/icon",
     '@unlighthouse/nuxt',
-    "nuxt-content-assets",
-    "@nuxt/fonts"
+    "@nuxt/fonts",
+    '@vueuse/motion/nuxt'
   ],
   formkit: {
     // autoImport: true,
@@ -56,27 +54,39 @@ export default defineNuxtConfig({
       pathPrefix: false
     }
   ],
-  site: {
-    url: 'https://nuxt-better-auth-drizzle.vercel.app',
-    name: 'Nuxt setup with Better Auth module |  Drizzle + Nuxt + Tailwind CSS + content + FormKit',
-    description: 'How to get started with Nuxt 4 and Better Auth| Step by step tutorial.',
-    defaultLocale: 'en', // not needed if you have @nuxtjs/i18n installed
-  },
+  // site: {
+  //   url: 'https://must-know-resources-for-programmers.giessen.dev',
+  //   name: 'Nuxt setup with Better Auth module |  Drizzle + Nuxt + Tailwind CSS + content + FormKit',
+  //   description: 'How to get started with Nuxt 4 and Better Auth| Step by step tutorial.',
+  //   defaultLocale: 'en', // not needed if you have @nuxtjs/i18n installed
+  // },
   image: {
     quality: 75,
     format: ['webp'],
   },
-  ogImage: {
-    componentOptions: {
-      global: true
-    }
-  },
+  // ogImage: {
+  //   componentOptions: {
+  //     global: true
+  //   }
+  // },
   content: {
-    documentDriven: true,
-    ignores: [
-      "/login",
-      "/register",
-      "/app/"
-    ]
+
+    build: {
+      markdown: {
+        highlight: {
+          // Theme used in all color schemes.
+          // theme: 'github-light',
+          // OR
+          theme: {
+            // Default theme (same as single string)
+            default: 'github-light',
+            // Theme used if `html.dark`
+            dark: 'github-dark',
+            // Theme used if `html.sepia`
+            sepia: 'monokai'
+          }
+        }
+      }
+    }
   }
 })

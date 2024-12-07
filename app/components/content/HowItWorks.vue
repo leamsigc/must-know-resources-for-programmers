@@ -59,22 +59,19 @@ const { list } = toRefs(props);
   <section id="how-it-works" class="container py-24 sm:py-32">
     <div class="text-center mb-8">
       <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-        <ContentSlot :use="$slots.title" unwrap="p"> How It Works </ContentSlot>
+        <slot name="title"> How It Works </slot>
       </h2>
 
       <h3 class="text-3xl md:text-4xl text-center font-bold">
-        <ContentSlot :use="$slots.subtitle" unwrap="p">
+        <slot name="subtitle">
           Step-by-Step Process
-        </ContentSlot>
+        </slot>
       </h3>
     </div>
 
     <div class="lg:w-[80%] mx-auto relative">
-      <div
-        v-for="({ badgeTitle, title, description }, index) in list"
-        :key="title"
-        :class="['flex mb-8 items-center', { ' flex-row-reverse': index % 2 !== 0 }]"
-      >
+      <div v-for="({ badgeTitle, title, description }, index) in list" :key="title"
+        :class="['flex mb-8 items-center', { ' flex-row-reverse': index % 2 !== 0 }]">
         <UiCard class="h-full bg-transparent border-0 shadow-none">
           <UiCardHeader>
             <div class="pb-4">
@@ -91,21 +88,14 @@ const { list } = toRefs(props);
           </UiCardContent>
         </UiCard>
 
-        <NuxtImg
-          src="https://shadcn-vue-landing-page.vercel.app/roboto.png"
-          :alt="`Image describing ${title} `"
-          class="w-[150px] md:w-[250px] lg:w-[300px] mx-auto -scale-x-100"
-          width="150"
-          height="350"
-        />
-        <div
-          :class="[
-            '-z-10 absolute right-0 w-44 h-72  lg:w-64 lg:h-80 rounded-full bg-primary/15 dark:bg-primary/10 blur-3xl',
-            {
-              'left-0': index % 2 !== 0,
-            },
-          ]"
-        />
+        <NuxtImg src="https://shadcn-vue-landing-page.vercel.app/roboto.png" :alt="`Image describing ${title} `"
+          class="w-[150px] md:w-[250px] lg:w-[300px] mx-auto -scale-x-100" width="150" height="350" />
+        <div :class="[
+          '-z-10 absolute right-0 w-44 h-72  lg:w-64 lg:h-80 rounded-full bg-primary/15 dark:bg-primary/10 blur-3xl',
+          {
+            'left-0': index % 2 !== 0,
+          },
+        ]" />
       </div>
     </div>
   </section>

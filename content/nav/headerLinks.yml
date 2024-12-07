@@ -1,0 +1,69 @@
+headerLinks:
+  MenuLinks:
+    - name: "Tags"
+      href: "#tags"
+      image: "/logo.png"
+      children:
+        - name: "Top tags"
+          href: "/tags"
+          children:
+            - name: "Blog of Developers"
+              description: "The best developer blog. hand picked for you."
+              icon: "lucide:book"
+              href: "/tags/blogs-of-developers"
+            - name: "Youtube Channels"
+              description: "Best Youtube channels for developers."
+              icon: "lucide:video"
+              href: "/tags/youtube-channels"
+            - name: "Crypto for Developers"
+              description: "Best resources for crypto developers."
+              icon: "lucide:banknote"
+              href: "/tags/cryptocurrency"
+        - name: "General tools"
+          href: "#tools"
+          children:
+            - name: "General tools"
+              description: "Best general tools for developers."
+              icon: "lucide:flag"
+              href: "/tags/general-tools"
+    - name: "Blogs"
+      href: "/blog"
+    - name: "Tags"
+      href: "/tags"
+    - name: "Contact"
+      href: "/#contact"
+    - name: "FAQ"
+      href: "/#faq"
+
+  ShortLinks:
+    - name: "Home"
+      href: "/"
+    - name: "Blogs"
+      href: "/blog"
+    - name: "Login"
+      href: "/login"
+    - name: "Sign Up"
+      href: "/register"
+    - name: "Support"
+      href: "/"
+    - name: "Sitemap"
+      href: "/sitemap.xml"
+    - name: "Cookie settings"
+      href: "/"
+
+  SocialMedias:
+    - name: facebook
+      href: https://www.facebook.com/leamsigc
+      icon: "facebook"
+    - name: twitter
+      href: https://twitter.com/leamsigc
+      icon: "twitter"
+    - name: instagram
+      href: https://www.instagram.com/leamsigc
+      icon: "instagram"
+  Actions:
+    - name: ''
+      href: https://github.com/leamsigc/must-know-resources-for-programmers
+      icon: "lucide:github"
+      label: "View on GitHub"
+      target: _blank

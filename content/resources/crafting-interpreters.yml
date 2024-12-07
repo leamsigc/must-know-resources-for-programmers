@@ -1,0 +1,5 @@
+title: Crafting Interpreters
+link: "http://craftinginterpreters.com/"
+description: A handbook for writing interpreters, first implementing a tree walking interpreter and later a bytecode virtual machine
+section: 🔄 Building a Simple Compiler/Interpreter
+tag: building-a-simple-compiler-interpreter

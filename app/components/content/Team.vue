@@ -193,58 +193,40 @@ const socialIcon = (socialName: string) => {
   <section id="team" class="container lg:w-[75%] py-24 sm:py-32">
     <div class="text-center mb-8">
       <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-        <ContentSlot :use="$slots.title" unwrap="p"> Team </ContentSlot>
+        <slot name="title"> Team </slot>
       </h2>
 
       <h3 class="text-3xl md:text-4xl text-center font-bold">
-        <ContentSlot :use="$slots.subtitle" unwrap="p">
+        <slot name="subtitle">
           The Company Dream Team
-        </ContentSlot>
+        </slot>
       </h3>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-      <UiCard
-        v-for="{ imageUrl, firstName, lastName, positions, socialNetworks } in list"
-        :key="imageUrl"
-        class="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden group/hoverimg"
-      >
+      <UiCard v-for="{ imageUrl, firstName, lastName, positions, socialNetworks } in list" :key="imageUrl"
+        class="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden group/hoverimg">
         <UiCardHeader class="p-0 gap-0">
           <div class="h-full overflow-hidden">
-            <NuxtImg
-              :src="imageUrl"
-              :alt="firstName + ' ' + lastName"
-              loading="lazy"
-              class="w-full aspect-square object-cover saturate-0 transition-all duration-200 ease-linear size-full group-hover/hoverimg:saturate-100 group-hover/hoverimg:scale-[1.01]"
-            />
+            <NuxtImg :src="imageUrl" :alt="firstName + ' ' + lastName" loading="lazy"
+              class="w-full aspect-square object-cover saturate-0 transition-all duration-200 ease-linear size-full group-hover/hoverimg:saturate-100 group-hover/hoverimg:scale-[1.01]" />
           </div>
-          <UiCardTitle class="py-6 pb-4 px-6"
-            >{{ firstName }}
+          <UiCardTitle class="py-6 pb-4 px-6">{{ firstName }}
             <span class="text-primary">{{ lastName }}</span>
           </UiCardTitle>
         </UiCardHeader>
 
-        <UiCardContent
-          v-for="(position, index) in positions"
-          :key="index"
-          :class="{
-            'pb-0 text-muted-foreground ': true,
-            'pb-4': index === positions.length - 1,
-          }"
-        >
+        <UiCardContent v-for="(position, index) in positions" :key="index" :class="{
+          'pb-0 text-muted-foreground ': true,
+          'pb-4': index === positions.length - 1,
+        }">
           {{ position }}<span v-if="index < positions.length - 1">,</span>
         </UiCardContent>
 
         <UiCardFooter class="space-x-4 mt-auto">
-          <NuxtLink
-            v-for="{ name, url } in socialNetworks"
-            :key="name"
-            :href="url"
-            target="_blank"
-            class="hover:opacity-80 transition-all"
-            :aria-label="`Visit our ${name} page`"
-            title="Visit our social network"
-          >
+          <NuxtLink v-for="{ name, url } in socialNetworks" :key="name" :href="url" target="_blank"
+            class="hover:opacity-80 transition-all" :aria-label="`Visit our ${name} page`"
+            title="Visit our social network">
             <Icon :name="socialIcon(name)" />
           </NuxtLink>
         </UiCardFooter>
