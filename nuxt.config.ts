@@ -23,7 +23,8 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     '@unlighthouse/nuxt',
     "@nuxt/fonts",
-    '@vueuse/motion/nuxt'
+    '@vueuse/motion/nuxt',
+    '@nuxthq/studio'
   ],
   formkit: {
     // autoImport: true,
