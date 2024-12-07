@@ -36,7 +36,6 @@
     "@nuxt/fonts": "^0.10.3",
     "@nuxt/icon": "^1.9.1",
     "@nuxt/image": "^1.8.1",
-    "@nuxthq/studio": "^2.2.1",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "@tailwindcss/typography": "^0.5.15",
@@ -51,5 +50,8 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
   },
-  "packageManager": "pnpm@8.15.1"
+  "packageManager": "pnpm@8.15.1",
+  "resolutions": {
+     "vite": "^6.0.1"
+  }
 }

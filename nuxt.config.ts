@@ -89,6 +89,9 @@ export default defineNuxtConfig({
     }
   },
   content: {
+    studio: {
+      enabled: true
+    },
     build: {
       markdown: {
         highlight: {
