@@ -7,16 +7,12 @@ COPY package.json /app
 RUN pnpm i
 COPY . /app
 
+RUN pnpm generate
 
+FROM nginx:alpine as prod
+COPY --from=build /app/.output/public /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+EXPOSE 80
 
-
-RUN pnpm build
-FROM gcr.io/distroless/nodejs:18 as prod
-WORKDIR /app
-COPY --from=build /app/.output /app/.output
-EXPOSE 3000/tcp
-CMD ["/app/.output/server/index.mjs"]
-
-
-
+CMD ["nginx", "-g", "daemon off;"]
