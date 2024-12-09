@@ -11,7 +11,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     "@nuxt/content",
-    '@nuxthq/studio',
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
     "@formkit/nuxt",
@@ -89,9 +88,6 @@ export default defineNuxtConfig({
     }
   },
   content: {
-    studio: {
-      enabled: true
-    },
     build: {
       markdown: {
         highlight: {

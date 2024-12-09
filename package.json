@@ -5,7 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate && node ./scripts/seoStuff.js",
     "preview": "nuxt preview",
     "lint": " eslint . --fix",
     "postinstall": "nuxt prepare"
@@ -52,6 +52,6 @@
   },
   "packageManager": "pnpm@8.15.1",
   "resolutions": {
-     "vite": "^6.0.1"
+    "vite": "^6.0.1"
   }
 }
