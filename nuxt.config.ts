@@ -1,5 +1,3 @@
-
-
 import { checkEnv } from "./config/env.config"
 import { env } from "node:process";
 
@@ -24,7 +22,13 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     '@vueuse/motion/nuxt',
     "@nuxtjs/seo",
+    'nuxt-umami'
   ],
+  umami: {
+    id: '1fe4398a-2c75-437c-887e-22a11e5cde39',
+    host: 'https://umami.giessen.dev',
+    autoTrack: true,
+  },
   formkit: {
     // autoImport: true,
     configFile: './config/formkit.config.ts',
