@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build-server": "nuxt build",
+    "build": "nuxt generate && node ./scripts/seoStuff.js",
     "dev": "nuxt dev",
     "generate": "nuxt generate && node ./scripts/seoStuff.js",
     "preview": "nuxt preview",
