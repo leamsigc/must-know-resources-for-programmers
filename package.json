@@ -9,11 +9,12 @@
     "generate": "nuxt generate && node ./scripts/seoStuff.js",
     "preview": "nuxt preview",
     "lint": " eslint . --fix",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "start": "node .output/server/index.mjs"
   },
   "dependencies": {
     "@formkit/nuxt": "^1.6.9",
-    "@nuxt/content": "3.0.0-alpha.7",
+    "@nuxt/content": "https://pkg.pr.new/@nuxt/content@2bb8875",
     "@nuxt/eslint": "^0.7.2",
     "@nuxtjs/seo": "2.0.2",
     "@unovis/ts": "^1.4.5",

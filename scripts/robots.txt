@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://must-know-resources-for-programmers.giessen.dev/sitemap.xml
