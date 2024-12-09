@@ -5,7 +5,7 @@ import { dirname, join, extname } from 'path';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const BASE_URL = 'https://must-know-resources-for-programmers.vercel.app';
+const BASE_URL = 'https://must-know-resources-for-programmers.giessen.dev';
 const ALLOWED_FOLDERS = ['blogs', 'blog', 'resource', 'tags'];
 
 /**
