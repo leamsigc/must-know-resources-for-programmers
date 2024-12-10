@@ -1,3 +1,9 @@
+
+/**
+ * This is currently a work around for the Nuxt SEO module for the sitemap and the robots.txt
+ * just a temporary solution for Nuxt Content version 3 to get that juice SEO requirements
+ */
+
 import { promises as fs } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join, extname } from 'path';

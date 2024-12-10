@@ -1,3 +1,7 @@
+/***
+* This file is used to go over the md file and extract the links from it and create the yaml files
+***/
+
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 import { fileURLToPath } from 'url';

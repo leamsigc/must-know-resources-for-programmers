@@ -113,9 +113,14 @@ const HandleNavigate = (link: string) => {
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-20">
-            <ShinyCard v-for="{ link, title, slug, description, tag } in resources" :key="slug">
+            <ShinyCard v-for="{ link, title, slug, description, tag,stem } in resources" :key="slug">
                 <NuxtLink :to="`/resource/${convertTitleToSlug(title)}`">
-                    <UiCard class="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden group/hoverimg">
+                    <UiCard class="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden group/hoverimg ">
+                        <UiCardHeader class="p-1 rounded-sm">
+                            <section>
+                                <NuxtImg loading="lazy" :alt="title" width="300" height="300" :src="`/${stem}.png`" class="h-40 w-full object-cover rounded-sm" />
+                            </section>
+                        </UiCardHeader>
                         <UiCardContent class="text-center py-5 flex flex-col h-full">
                             <section>
                                 <div class="font-semibold text-center">
