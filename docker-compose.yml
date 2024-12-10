@@ -3,6 +3,6 @@ services:
   app-prod:
     build: 
       context: .
-      target: prod
+      dockerfile: Dockerfile
     ports:
       - "80:80"

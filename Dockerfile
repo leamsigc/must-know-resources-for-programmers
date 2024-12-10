@@ -1,13 +1,15 @@
-FROM node:18-alpine as build
+FROM node:22 as build
 
+# set node env as development
+# ENV NODE_ENV=development
 RUN npm i -g pnpm
 
 WORKDIR /app
-COPY package.json /app
-RUN pnpm i
-COPY . /app
+COPY package.json .
+RUN npm i
+COPY . .
 
-RUN pnpm generate
+RUN pnpm build
 
 FROM nginx:alpine as prod
 COPY --from=build /app/.output/public /usr/share/nginx/html
