@@ -92,6 +92,9 @@ export default defineNuxtConfig({
     }
   },
   content: {
+    studio: {
+      enabled: true
+    },
     build: {
       pathMeta: {
         forceLeadingSlash: true
