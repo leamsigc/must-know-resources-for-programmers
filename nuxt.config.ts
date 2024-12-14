@@ -93,6 +93,9 @@ export default defineNuxtConfig({
   },
   content: {
     build: {
+      pathMeta: {
+        forceLeadingSlash: true
+      },
       markdown: {
         highlight: {
           // Theme used in all color schemes.
