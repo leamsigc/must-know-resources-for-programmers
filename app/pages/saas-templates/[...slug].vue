@@ -81,6 +81,16 @@ defineOgImageComponent('BlogOgImage', {
     ...seo,
     headline: page.value?.tag || 'Saas Templates',
 })
+const confettiContainer = defineAsyncComponent(() => import('~/components/content/UiConfettiContainer.vue'))
+const ActiveWrapperContainer = {
+    div: 'div',
+    confettiContainer
+
+}
+const active = ref<keyof typeof ActiveWrapperContainer>('div')
+if (page.value?.tag === 'nuxt') {
+    active.value = 'confettiContainer'
+}
 </script>
 
 <template>
@@ -108,17 +118,19 @@ defineOgImageComponent('BlogOgImage', {
                     {{ page?.content }}
                 </slot>
             </section>
-            <section class="my-10">
-                <NuxtLink :href="page?.link" class="bg">
-                    <UiButton>
-                        <Icon name="lucide:external-link" /> Go to resource
-                    </UiButton>
-                </NuxtLink>
-            </section>
-            <section class="my-10">
-                <NuxtImg loading="lazy" :alt="page?.title" width="1400" height="800" :src="`/${page?.stem}.png`"
-                    class="h-auto0 w-full object-cover rounded-sm" />
-            </section>
+            <UiConfettiContainer>
+                <section class="my-10">
+                    <NuxtLink :href="page?.link" class="bg">
+                        <UiButton>
+                            <Icon name="lucide:external-link" /> Go to resource
+                        </UiButton>
+                    </NuxtLink>
+                </section>
+                <section class="my-10">
+                    <NuxtImg loading="lazy" :alt="page?.title" width="1400" height="800" :src="`/${page?.stem}.png`"
+                        class="h-auto0 w-full object-cover rounded-sm" />
+                </section>
+            </UiConfettiContainer>
         </div>
         <UiSeparator show-buckle class="pt-0" />
     </section>

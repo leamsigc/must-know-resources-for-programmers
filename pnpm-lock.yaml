@@ -35,6 +35,9 @@ dependencies:
   '@vueuse/nuxt':
     specifier: ^12.0.0
     version: 12.0.0(nuxt@3.14.1592)(typescript@5.7.2)
+  canvas-confetti:
+    specifier: ^1.9.3
+    version: 1.9.3
   dotenv:
     specifier: ^16.4.7
     version: 16.4.7
@@ -5088,6 +5091,10 @@ packages:
 
   /caniuse-lite@1.0.30001687:
     resolution: {integrity: sha512-0S/FDhf4ZiqrTUiQ39dKeUjYRjkv7lOZU1Dgif2rIqrTzX/1wV2hfKu9TOm1IHkdSijfLswxTFzl/cvir+SLSQ==}
+
+  /canvas-confetti@1.9.3:
+    resolution: {integrity: sha512-rFfTURMvmVEX1gyXFgn5QMn81bYk70qa0HLzcIOSVEyl57n6o9ItHeBtUSWdvKAPY0xlvBHno4/v3QPrT83q9g==}
+    dev: false
 
   /ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
