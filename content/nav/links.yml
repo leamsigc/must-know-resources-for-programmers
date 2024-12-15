@@ -8,9 +8,9 @@ footerLinks:
       - name: Github
         url: https://github.com/leamsigc/nuxt-better-auth-drizzle
         icon: "lucide:github"
-      - name: Twitter
-        url: https://twitter.com/leamsigc
-        icon: "lucide:twitter"
+      - name: Bluesky
+        url: https://bsky.app/profile/leamsigc.com
+        icon: "logos:bluesky"
       - name: instagram
         url: https://www.instagram.com/leamsigc
         icon: "lucide:instagram"
@@ -28,8 +28,8 @@ footerLinks:
   - title: Help
     links:
       - name: Contact us
-        url: /contact
+        url: https://leamsigc.com/
       - name: FAQ
         url: /#faq
       - name: Feedback
-        url: /#faq
+        url: https://github.com/leamsigc/must-know-resources-for-programmers/issues/new

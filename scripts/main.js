@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = join(__filename, '..');
+const FILE_NAME = 'sass-templates.md';
 
 async function main() {
     // Create output directories
@@ -22,7 +23,7 @@ async function main() {
     }
 
     // Read source markdown file
-    const sourcePath = join(__dirname, 'source.md');
+    const sourcePath = join(__dirname, FILE_NAME);
     const content = readFileSync(sourcePath, 'utf-8');
 
     // Split content into lines
@@ -75,7 +76,7 @@ async function main() {
             let description = linkMatch[3].trim();
             
             // Clean up description
-            if (description.startsWith(':')) {
+            if (description.startsWith(':') || description.startsWith('-')) {
                 description = description.slice(1).trim();
             }
 

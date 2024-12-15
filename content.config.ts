@@ -8,6 +8,28 @@ const linkZodDefinition = z.object({
   icon: z.string().optional(),
   target: z.string().optional()
 })
+const BASE_TAG = (source = 'tags/**.yml') =>  defineCollection({
+  source,
+  type: 'data',
+  schema: z.object({
+    icon: z.string(),
+    label: z.string(),
+    slug: z.string()
+  })
+});
+const BASE_CONTENT = (source = 'resources/**.yml') => defineCollection({
+    type: 'data',
+    source,
+    schema: z.object({
+      title: z.string(),
+      link: z.string(),
+      slug: z.string(),
+      description: z.string(),
+      tag: z.string(),
+      content: z.string().optional()
+    })
+  })
+
 
 const mainLink = linkZodDefinition.and(
   z.object({
@@ -117,25 +139,8 @@ export const collections = {
       })
     })
   }),
-  tags: defineCollection({
-    type: 'data',
-    source: 'tags/**.yml',
-    schema: z.object({
-      icon: z.string(),
-      label: z.string(),
-      slug: z.string()
-    })
-  }),
-  resources: defineCollection({
-    type: 'data',
-    source: 'resources/**.yml',
-    schema: z.object({
-      title: z.string(),
-      link: z.string(),
-      slug: z.string(),
-      description: z.string(),
-      tag: z.string(),
-      content: z.string().optional()
-    })
-  }),
+  tags: BASE_TAG(),
+  resources: BASE_CONTENT(),
+  saas_tags: BASE_TAG('saas-tags/**.yml'),
+  saas_templates: BASE_CONTENT('saas-templates/**.yml')
 }

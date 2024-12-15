@@ -36,6 +36,7 @@ const { data: site } = await useAsyncData("meta_site", () =>
           <h3 class="font-bold text-lg">{{ title }}</h3>
           <div v-for="{ name, url, icon } in links" :key="name">
             <NuxtLink :href="url" class="opacity-60 hover:opacity-100" :arial-label="name" :title="name">
+              <Icon :name="icon" class="mr-2" v-if="icon" />
               {{ name }}
             </NuxtLink>
           </div>

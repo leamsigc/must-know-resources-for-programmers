@@ -30,8 +30,8 @@ headerLinks:
       href: "/blog"
     - name: "Tags"
       href: "/tags"
-    - name: "Contact"
-      href: "/#contact"
+    - name: "Saas Templates"
+      href: "/sass-starter-kits"
     - name: "FAQ"
       href: "/#faq"
 
@@ -40,16 +40,12 @@ headerLinks:
       href: "/"
     - name: "Blogs"
       href: "/blog"
-    - name: "Login"
-      href: "/login"
-    - name: "Sign Up"
-      href: "/register"
-    - name: "Support"
-      href: "/"
+    - name: "Tags"
+      href: "/tags"
+    - name: "Saas Templates"
+      href: "/saas-tags"
     - name: "Sitemap"
       href: "/sitemap.xml"
-    - name: "Cookie settings"
-      href: "/"
 
   SocialMedias:
     - name: facebook

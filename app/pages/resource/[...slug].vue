@@ -19,7 +19,7 @@ const { data: page } = await useAsyncData(`resource-page-${routeSlug}`, () => {
         .where('stem', '=', `resources/${routeSlug}`).first()
 })
 
-const seo= {
+const seo = {
     title: page.value?.title || `The best Resource for ${routeSlug}`,
     description: page.value?.description || `The best Resource for ${routeSlug}`,
     meta: [
@@ -79,7 +79,7 @@ const seo= {
 useHead(seo)
 defineOgImageComponent('BlogOgImage', {
     ...seo,
-  headline: 'Resources',
+    headline: 'Resources',
 })
 </script>
 
@@ -114,6 +114,10 @@ defineOgImageComponent('BlogOgImage', {
                         <Icon name="lucide:external-link" /> Go to resource
                     </UiButton>
                 </NuxtLink>
+            </section>
+            <section class="my-10">
+                <NuxtImg loading="lazy" :alt="page?.title" width="1400" height="800" :src="`/${page?.stem}.png`"
+                    class="h-auto0 w-full object-cover rounded-sm" />
             </section>
         </div>
         <UiSeparator show-buckle class="pt-0" />

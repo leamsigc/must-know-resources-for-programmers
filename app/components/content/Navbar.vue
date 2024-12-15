@@ -95,7 +95,7 @@ const { data: site } = await useAsyncData("meta_site", () =>
               <UiNavigationMenuContent>
                 <div
                   class="grid grid-cols-1 gap-5 bg-background p-6 py-5 ring-1 ring-muted lg:w-[750px] lg:grid-cols-2 xl:w-[1000px] xl:grid-cols-3">
-                  <NuxtImg :src="menuLink.image" alt="Beach" class="h-full w-full rounded-md object-cover" />
+                  <NuxtImg src="/logo.png" :alt="menuLink.name" class="h-full w-full rounded-md object-cover" />
                   <div v-for="(item, index) in menuLink.children" :key="`${item.name}-${index}`">
                     <p class="mb-5 text-sm font-semibold capitalize text-primary">
                       {{ item.name }}
