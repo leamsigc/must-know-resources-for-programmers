@@ -51,7 +51,7 @@ badge:
   content: Find Your Perfect Starter Kit
 actions:
   - label: Explore Starter Kits
-    href: /sass-tags
+    href: /saas-tags
     icon: "lucide:search"
 showHeroImage: false
 heroImage:

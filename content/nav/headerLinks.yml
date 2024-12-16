@@ -31,7 +31,7 @@ headerLinks:
     - name: "Tags"
       href: "/tags"
     - name: "Saas Templates"
-      href: "/sass-starter-kits"
+      href: "/saas-starter-kits"
     - name: "FAQ"
       href: "/#faq"
 
@@ -43,7 +43,7 @@ headerLinks:
     - name: "Tags"
       href: "/tags"
     - name: "Saas Templates"
-      href: "/saas-tags"
+      href: "/saas-starter-kits"
     - name: "Sitemap"
       href: "/sitemap.xml"
 
