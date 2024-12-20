@@ -145,5 +145,7 @@ const HandleNavigate = (link: string) => {
         </div>
     </section>
     <SaasTagsView />
+
+    <LazyComments url="https://bsky.app/profile/leamsigc.bsky.social/post/3ldp4ljsads2d" />
 </template>
 <style scoped></style>

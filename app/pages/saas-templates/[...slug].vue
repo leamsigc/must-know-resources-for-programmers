@@ -135,5 +135,7 @@ if (page.value?.tag === 'nuxt') {
         <UiSeparator show-buckle class="pt-0" />
     </section>
     <NotFoundView v-else />
+
+    <LazyComments url="https://bsky.app/profile/leamsigc.bsky.social/post/3ldp4ljsads2d" />
 </template>
 <style scoped></style>

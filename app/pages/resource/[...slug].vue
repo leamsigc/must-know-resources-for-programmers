@@ -123,5 +123,7 @@ defineOgImageComponent('BlogOgImage', {
         <UiSeparator show-buckle class="pt-0" />
     </section>
     <NotFoundView v-else />
+
+    <LazyComments url="https://bsky.app/profile/leamsigc.bsky.social/post/3ldp46yclds2k" />
 </template>
 <style scoped></style>

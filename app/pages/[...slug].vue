@@ -35,6 +35,8 @@ defineOgImageComponent('BlogOgImage', {
   <article>
     <ContentRenderer v-if="page" :value="page" />
     <NotFoundView v-else />
+
+    <LazyComments url="https://bsky.app/profile/leamsigc.bsky.social/post/3ldp3y3irus2k" />
   </article>
 </template>
 <style scoped></style>

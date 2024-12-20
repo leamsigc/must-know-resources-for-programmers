@@ -21,7 +21,7 @@ head:
     - name: robots
       content: index, follow
     - name: author
-      content: saas-starter-kits-directory.com
+      content: leamsigc
     - name: description
       content: Explore our directory of the best SaaS starter kits for developers and entrepreneurs. Launch your product quickly with open-source and premium solutions.
     - name: og:title
@@ -29,11 +29,11 @@ head:
     - name: og:description
       content: Find the perfect SaaS starter kit from a curated collection of open-source and premium solutions for quick and effective launches.
     - name: og:url
-      content: https://saas-starter-kits-directory.com
+      content: https://must-know-resources-for-programmers.giessen.dev
     - name: og:type
       content: website
     - name: og:image
-      content: /images/saas-logo.png
+      content: /img/saas-logo.png
     - name: twitter:card
       content: summary_large_image
     - name: twitter:title
@@ -41,7 +41,7 @@ head:
     - name: twitter:description
       content: A comprehensive directory to help you find the perfect SaaS starter kit for your quick product launch.
     - name: twitter:image
-      content: /images/saas-logo.png
+      content: /img/saas-logo.png
 ---
 
 ::Hero
