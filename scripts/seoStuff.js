@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const BASE_URL = 'https://must-know-resources-for-programmers.giessen.dev';
-const ALLOWED_FOLDERS = ['blogs', 'blog', 'resource', 'tags', 'saas-starter-kits','saas-tags','saas-templates'];
+const ALLOWED_FOLDERS = ['blogs', 'blog', 'resource', 'tags', 'saas-starter-kits', 'saas-tags', 'saas-templates'];
 
 /**
  * Generate sitemap.xml based on the content of .output/public folder
@@ -20,10 +20,10 @@ const ALLOWED_FOLDERS = ['blogs', 'blog', 'resource', 'tags', 'saas-starter-kits
 async function generateSitemap() {
     const outputDir = join(__dirname, '../.output/public');
     const sitemapPath = join(outputDir, 'sitemap.xml');
-    
+
     try {
         const urls = [];
-        
+
         // Add homepage
         urls.push({
             loc: BASE_URL,
@@ -70,8 +70,9 @@ async function scanDirectory(currentPath, baseDir) {
             const urlPath = relativePath
                 .replace(/index\.html$/, '')
                 .replace(/\.html$/, '')
-                .replace(/^\//, '');
-            
+                .replace(/^\//, '')
+                .replace(/\/$/, '');         // Removes trailing "/" if it's the result of removing "index.html"
+
             urls.push({
                 loc: `${BASE_URL}/${urlPath}`,
                 lastmod: new Date().toISOString(),
@@ -111,7 +112,7 @@ async function copyRobotsFile() {
     try {
         // Create output directory if it doesn't exist
         await fs.mkdir(outputDir, { recursive: true });
-        
+
         // Copy the file
         await fs.copyFile(sourceFile, destFile);
         console.log('✅ robots.txt copied successfully to .output/public directory');
