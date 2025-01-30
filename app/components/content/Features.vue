@@ -95,7 +95,7 @@ const { list } = toRefs(props);
 </script>
 
 <template>
-  <section id="features" class="container py-24 sm:py-32">
+  <section id="features" class="container py-24 sm:py-32" v-motion-fade-visible-once>
     <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
       <slot name="title"> Features </slot>
     </h2>

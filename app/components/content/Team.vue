@@ -226,7 +226,7 @@ const socialIcon = (socialName: string) => {
         <UiCardFooter class="space-x-4 mt-auto">
           <NuxtLink v-for="{ name, url } in socialNetworks" :key="name" :href="url" target="_blank"
             class="hover:opacity-80 transition-all" :aria-label="`Visit our ${name} page`"
-            title="Visit our social network">
+            :title="name">
             <Icon :name="socialIcon(name)" />
           </NuxtLink>
         </UiCardFooter>

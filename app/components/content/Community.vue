@@ -25,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
 const { icon, url, label } = toRefs(props);
 </script>
 <template>
-  <section id="community" class="py-12">
+  <section id="community" class="py-12" v-motion-fade-visible-once :delay="200" :duration="1200">
     <UiSeparator show-buckle />
     <div class="container ">
       <div class="lg:w-[60%] mx-auto">
@@ -47,7 +47,7 @@ const { icon, url, label } = toRefs(props);
 
           <UiCardFooter>
             <UiButton as-child>
-              <NuxtLink :href="url" target="_blank">
+              <NuxtLink :href="url" target="_blank" :aria-label="label" :title="label">
                 <Icon class="size-6 mr-2" :name="icon" />
                 {{ label }}
               </NuxtLink>

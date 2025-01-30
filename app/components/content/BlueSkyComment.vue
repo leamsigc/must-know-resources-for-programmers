@@ -69,7 +69,7 @@ const getAbbreviatedTime = (dateString: string) => {
                     </UiAvatarFallback>
                 </UiAvatar>
 
-                <NuxtLink :href="getAuthorProfileUrl(thread.post.author.did)" class="grid gap-1">
+                <NuxtLink :href="getAuthorProfileUrl(thread.post.author.did)" class="grid gap-1" :title="thread.post.author.handle">
                     <p class="text-sm font-medium leading-none">
                         {{ thread.post.author.displayName || thread.post.author.handle }}
                     </p>
@@ -79,7 +79,7 @@ const getAbbreviatedTime = (dateString: string) => {
                 </NuxtLink>
                 <NuxtLink :href="getPostUrl(thread.post.author.did, thread.post.uri)" target="_blank" rel="ugc"
                     :title="formatFullDate(thread.post.record.createdAt)"
-                    class="ml-auto text-xs font-light opacity-30 hover:underline">
+                    class="ml-auto text-xs font-light opacity-80 hover:underline">
                     {{ getAbbreviatedTime(thread.post.record.createdAt) }}
                 </NuxtLink>
             </div>

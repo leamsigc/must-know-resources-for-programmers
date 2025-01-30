@@ -61,8 +61,8 @@ const mode = useColorMode();
 </script>
 
 <template>
-  <TyndallEffect :streak-color="mode.value === 'light' ? '#000000' : '#ffffff'">
-    <section class="container mx-auto">
+  <TyndallEffect v-motion-fade-visible-once>
+    <section class="container mx-auto ">
       <div class="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32">
         <div class="text-center space-y-8">
           <UiBadge variant="outline" class="text-sm py-2">
@@ -93,7 +93,8 @@ const mode = useColorMode();
             <slot name="actions">
               <UiButton v-for="action in actions" :key="action.label" class="w-5/6 md:w-1/4 font-bold group/arrow"
                 :variant="action.variant as ButtonVariants['variant']" as-child :prefetch="false">
-                <NuxtLink :href="action.href" :target="action.target || ''" :aria-label="action.label">
+                <NuxtLink :href="action.href" :target="action.target || ''" :aria-label="action.label"
+                  :title="action.label">
                   {{ action.label }}
                   <Icon v-if="action.icon" :name="action.icon"
                     class="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform" />

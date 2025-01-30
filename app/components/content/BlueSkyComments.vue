@@ -162,7 +162,7 @@ watch(() => props.url, (newUrl) => {
 </script>
 
 <template>
-    <section class="container  border-x">
+    <section class="container  border-x" v-motion-fade-visible-once :delay="200" :duration="1200">
         <UiSeparator v-if="url" class="my-4" show-buckle />
         <div class="text-center mb-20">
             <h2 class="text-lg text-primary text-center mb-2 tracking-wider">

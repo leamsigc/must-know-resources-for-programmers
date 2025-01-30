@@ -34,7 +34,7 @@ const { data } = await useAsyncData('saas-tags', () => queryCollection('saas_tag
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-20">
             <ShinyCard v-for="{ icon, label, slug } in data" :key="slug">
-                <NuxtLink :to="`/saas-tags/${slug}`">
+                <NuxtLink :to="`/saas-tags/${slug}`" :title="label">
                     <UiCard class="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden group/hoverimg">
                         <UiCardContent class="text-center py-5">
                             <section>

@@ -27,15 +27,15 @@ const { data: featuredArticles } = await useAsyncData("featured_posts", () =>
       class="group flex flex-col space-y-3 md:space-y-6  transition-transform">
       <NuxtLink
         class="object-contain aspect-video rounded-xl overflow-hidden flex items-center justify-center transition-all dark:group-hover:opacity-80 hover:hue-rotate-90"
-        :href="article.path">
+        :href="article.path" :title="article.title">
         <NuxtPicture loading="lazy" class="w-full h-full" :src="article.image.src" :alt="article.image.alt" width="600"
           height="300" />
       </NuxtLink>
       <div class="space-y-3 md:space-y-5 pr-3 flex-1">
-        <NuxtLink :href="article.path">
-          <h5 class="group-hover:text-primary transition-colors text-2xl font-semibold leading-tight">
+        <NuxtLink :href="article.path" :title="article.title">
+          <h3 class="group-hover:text-primary transition-colors text-2xl font-semibold leading-tight">
             {{ article.title }}
-          </h5>
+          </h3>
         </NuxtLink>
         <div class="flex justify-between mt-auto">
           <div class="flex flex-col md:flex-row gap-3 md:gap-5">
@@ -44,7 +44,8 @@ const { data: featuredArticles } = await useAsyncData("featured_posts", () =>
                 <UiAvatarImage :src="article.author.avatar" alt="@radix-vue" />
                 <UiAvatarFallback>{{ article.author.name.slice(0, 1) }}</UiAvatarFallback>
               </UiAvatar>
-              <NuxtLink :href="article.author.social" class="flex flex-col" target="_blank">
+              <NuxtLink :href="article.author.social" class="flex flex-col" target="_blank"
+                :title="article.author.name">
 
                 <span class="text-sm font-semibold dark:text-white/80">
                   {{ article.author.name }}

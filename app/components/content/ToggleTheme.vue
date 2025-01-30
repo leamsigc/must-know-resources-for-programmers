@@ -18,21 +18,14 @@ const HandleThemeChange = () => {
 </script>
 
 <template>
-  <UiButton
-    size="sm"
-    variant="ghost"
-    class="w-full justify-start"
-    @click="HandleThemeChange"
-  >
-    <div v-if="$colorMode.value == 'light'" class="flex gap-2">
-      <Icon name="lucide:moon" class="size-5" />
-      <span class="block lg:hidden"> Dark </span>
+  <UiButton size="sm" variant="ghost" class="w-full justify-start" @click="HandleThemeChange">
+    <div class="flex gap-2">
+      <ClientOnly>
+        <Icon :name="colorMode.value === 'light' ? 'lucide:moon' : 'lucide:sun'" class="size-5" />
+        <span class="block lg:hidden"> {{ colorMode.value === 'light' ? 'Dark' : 'Light' }}</span>
+      </ClientOnly>
     </div>
 
-    <div v-else class="flex gap-2">
-      <Icon name="lucide:sun" class="size-5" />
-      <span class="block lg:hidden">Light</span>
-    </div>
 
     <span class="sr-only">Toggle theme</span>
   </UiButton>

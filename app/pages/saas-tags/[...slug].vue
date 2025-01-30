@@ -19,6 +19,9 @@ const { data: saas } = await useAsyncData(`saas-${route.params.slug}`, () =>
     queryCollection('saas_templates').where('tag', '=', route.params.slug).all()
 );
 const seo = {
+    htmlAttrs: {
+        lang: 'en',  
+    },
     title: page.value?.label || 'The best Saas Templates from Free and Open Source to Paid starter kits',
     description: page.value?.label || 'The best Saas Templates from Free and Open Source to Paid starter kits',
     meta: [
@@ -114,7 +117,7 @@ const HandleNavigate = (link: string) => {
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-20">
             <ShinyCard v-for="{ link, title, slug, description, tag, stem } in saas" :key="slug">
-                <NuxtLink :to="`/saas-templates/${convertTitleToSlug(title)}`">
+                <NuxtLink :to="`/saas-templates/${convertTitleToSlug(title)}`" :title="title">
                     <UiCard class="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden group/hoverimg ">
                         <UiCardHeader class="p-1 rounded-sm">
                             <section>

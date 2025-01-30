@@ -54,7 +54,8 @@ const { list } = toRefs(props);
 </script>
 
 <template>
-  <section id="faq" class="container md:w-[700px] py-24 sm:py-32">
+  <section id="faq" class="container md:w-[700px] py-24 sm:py-32" v-motion-fade-visible-once :delay="200"
+    :duration="1200">
     <div class="text-center mb-8">
       <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
         <slot name="title"> FAQS </slot>
@@ -75,7 +76,8 @@ const { list } = toRefs(props);
 
     <h3 class="font-medium mt-4">
       Still have questions?
-      <NuxtLink href="/" class="text-muted-foreground underline">Contact us </NuxtLink>
+      <NuxtLink href="/" class="text-muted-foreground underline" aria-label="Contact us" title="Contact us">Contact us
+      </NuxtLink>
     </h3>
   </section>
 </template>

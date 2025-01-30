@@ -20,6 +20,9 @@ const { data: page } = await useAsyncData(`resource-page-${routeSlug}`, () => {
 })
 
 const seo = {
+    htmlAttrs: {
+        lang: 'en',  
+    },
     title: page.value?.title || `The best Resource for ${routeSlug}`,
     description: page.value?.description || `The best Resource for ${routeSlug}`,
     meta: [
@@ -109,7 +112,7 @@ defineOgImageComponent('BlogOgImage', {
                 </slot>
             </section>
             <section class="my-10">
-                <NuxtLink :href="page?.link" class="bg">
+                <NuxtLink :href="page?.link" class="bg" target="_blank" :title="page?.title" :aria-label="page?.title">
                     <UiButton>
                         <Icon name="lucide:external-link" /> Go to resource
                     </UiButton>

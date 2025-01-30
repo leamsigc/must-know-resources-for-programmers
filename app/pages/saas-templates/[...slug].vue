@@ -20,6 +20,9 @@ const { data: page } = await useAsyncData(`saas-template-page-${routeSlug}`, () 
 })
 
 const seo = {
+    htmlAttrs: {
+        lang: 'en',  
+    },
     title: (page.value?.title + ' ' + page.value?.tag) || `The best saas starter kid for ${routeSlug}`,
     description: page.value?.description || `The best saas starter kid for ${routeSlug}`,
     meta: [
@@ -81,16 +84,7 @@ defineOgImageComponent('BlogOgImage', {
     ...seo,
     headline: page.value?.tag || 'Saas Templates',
 })
-const confettiContainer = defineAsyncComponent(() => import('~/components/content/UiConfettiContainer.vue'))
-const ActiveWrapperContainer = {
-    div: 'div',
-    confettiContainer
 
-}
-const active = ref<keyof typeof ActiveWrapperContainer>('div')
-if (page.value?.tag === 'nuxt') {
-    active.value = 'confettiContainer'
-}
 </script>
 
 <template>
@@ -120,7 +114,7 @@ if (page.value?.tag === 'nuxt') {
             </section>
             <UiConfettiContainer>
                 <section class="my-10">
-                    <NuxtLink :href="page?.link" class="bg">
+                    <NuxtLink :href="page?.link" class="bg" target="_blank" :title="page?.title" :aria-label="page?.title">
                         <UiButton>
                             <Icon name="lucide:external-link" /> Go to resource
                         </UiButton>

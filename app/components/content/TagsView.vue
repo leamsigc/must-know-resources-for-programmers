@@ -16,7 +16,7 @@ const { data } = await useAsyncData('tags', () => queryCollection('tags').all())
 </script>
 
 <template>
-    <section id="tags" class="container lg:w-[75%] ">
+    <section id="tags" class="container lg:w-[75%] " v-motion-fade-visible-once>
         <UiSeparator show-buckle class="pt-0" />
 
         <div class="text-center mb-8">
@@ -33,7 +33,7 @@ const { data } = await useAsyncData('tags', () => queryCollection('tags').all())
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-20">
             <ShinyCard v-for="{ icon, label, slug } in data" :key="slug">
-                <NuxtLink :to="`/tags/${slug}`">
+                <NuxtLink :to="`/tags/${slug}`" :title="label">
                     <UiCard class="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden group/hoverimg">
                         <UiCardContent class="text-center py-5">
                             <section>

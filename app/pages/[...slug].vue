@@ -18,17 +18,11 @@ const collectionType = route.path.startsWith('/blogs/') ? 'blog' : 'content'
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection(collectionType).path(route.path).first()
 })
-const layout = computed(() => {
-  return page.value?.layout || 'default'
-})
-
-setPageLayout(layout.value)
 useHead(page.value?.head || {})
-defineOgImageComponent('BlogOgImage', {
-  title: `${page.value?.title.slice(0, 20)}... 👋`,
-  description: `${page.value?.description.slice(0, 100)}...`,
-  headline: 'Resources',
-})
+
+if (page.value?.ogImage) {
+  defineOgImage(page.value.ogImage)
+}
 </script>
 
 <template>

@@ -21,22 +21,13 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div
-    :class="
-      cn(
-        'relative w-64 cursor-pointer overflow-hidden h-36 flex flex-col space-y-1 rounded-xl p-4',
-        '  border-gray-950/[.1] bg-gray-950/[.01] border-parent hover:bg-gray-950/[.05]'
-      )
-    "
-  >
+  <div :class="cn(
+    'relative w-64 cursor-pointer overflow-hidden h-36 flex flex-col space-y-1 rounded-xl p-4',
+    '  border-gray-950/[.1] bg-gray-950/[.01] border-parent hover:bg-gray-950/[.05]'
+  )
+    " v-motion-fade-visible-once>
     <div class="flex items-center space-x-2">
-      <NuxtImg
-        class="rounded-full"
-        width="32"
-        height="32"
-        :src="props.img"
-        :alt="`${props.name} ${props.username}`"
-      />
+      <NuxtImg class="rounded-full" width="32" height="32" :src="props.img" :alt="`${props.name} ${props.username}`" />
       <p class="flex flex-col space-y-1">
         <span class="text-sm font-medium dark:text-white">
           {{ props.name }}

@@ -8,7 +8,6 @@ export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
   devtools: { enabled: true },
   modules: [
-    "@nuxt/content",
     "@nuxtjs/tailwindcss",
     "@vueuse/nuxt",
     "@formkit/nuxt",
@@ -22,6 +21,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     '@vueuse/motion/nuxt',
     "@nuxtjs/seo",
+    "@nuxt/content",
     'nuxt-umami'
   ],
   umami: {
@@ -65,13 +65,9 @@ export default defineNuxtConfig({
     description: 'A comprehensive collection of essential resources, tools, and guides for programmers and developers at all skill levels.',
   },
   sitemap: {
-    enabled: false
-  },
-  robots: {
-    enabled: false
-  },
-  linkChecker: {
-    enabled: false
+    sources: [
+      '/api/__sitemap__/urls'
+    ]
   },
   seo: {
     meta: {
@@ -87,9 +83,15 @@ export default defineNuxtConfig({
     format: ['webp'],
   },
   ogImage: {
-    strictNuxtContentPaths: true,
     componentOptions: {
       global: true
+    }
+  },
+  linkChecker: {
+    report: {
+      // generate both a html and markdown report
+      html: false,
+      markdown: true,
     }
   },
   content: {

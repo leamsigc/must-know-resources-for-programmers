@@ -17,7 +17,7 @@
     <UiToastProvider>
       <Navbar />
       <slot />
-      <TheFooter />
+      <TheFooter v-motion-fade-visible-once />
     </UiToastProvider>
   </main>
 </template>

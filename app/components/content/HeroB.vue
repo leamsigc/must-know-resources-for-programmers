@@ -13,7 +13,8 @@
 </script>
 
 <template>
-  <div class="overflow-hidden relative z-10 pt-40 pb-24 md:pt-56 md:pb-48 -mt-[94px] hero--b">
+  <div class="overflow-hidden relative z-10 pt-40 pb-24 md:pt-56 md:pb-48 -mt-[94px] hero--b"
+    v-motion-fade-visible-once>
     <div class="absolute inset-0 z-0">
       <div
         class="absolute inset-0 bg-[radial-gradient(72.55%_72.55%_at_50%_97.31%,rgba(79,247,209,0.23)_0%,#121B22_100%)]" />

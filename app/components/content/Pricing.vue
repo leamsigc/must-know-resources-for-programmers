@@ -79,7 +79,7 @@ const { plans } = toRefs(props);
 </script>
 
 <template>
-  <section class="container py-24 sm:py-32">
+  <section class="container py-24 sm:py-32" v-motion-fade-visible-once>
     <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
       <slot name="title"> Pricing </slot>
     </h2>

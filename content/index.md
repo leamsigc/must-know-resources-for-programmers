@@ -4,11 +4,11 @@ title: Must Know Resources for Programmers | Essential Developer Guide
 description: A comprehensive collection of essential resources, tools, and guides for programmers and developers at all skill levels.
 
 ogImage:
-  component: Pergel
+  component: BlogOgImage
   props:
     title: Must Know Resources for Programmers
     description: Essential resources and tools for developers
-    heading: Developer Resources
+    headline: Developer Resources
 
 head:
   htmlAttrs:

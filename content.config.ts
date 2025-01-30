@@ -1,5 +1,9 @@
 import { defineCollection } from '@nuxt/content'
 import { z } from 'zod'
+
+
+import { asOgImageCollection } from 'nuxt-og-image/content'
+
 const linkZodDefinition = z.object({
   name: z.string(),
   href: z.string(),
@@ -8,7 +12,7 @@ const linkZodDefinition = z.object({
   icon: z.string().optional(),
   target: z.string().optional()
 })
-const BASE_TAG = (source = 'tags/**.yml') =>  defineCollection({
+const BASE_TAG = (source = 'tags/**.yml') => defineCollection({
   source,
   type: 'data',
   schema: z.object({
@@ -18,17 +22,17 @@ const BASE_TAG = (source = 'tags/**.yml') =>  defineCollection({
   })
 });
 const BASE_CONTENT = (source = 'resources/**.yml') => defineCollection({
-    type: 'data',
-    source,
-    schema: z.object({
-      title: z.string(),
-      link: z.string(),
-      slug: z.string(),
-      description: z.string(),
-      tag: z.string(),
-      content: z.string().optional()
-    })
+  type: 'data',
+  source,
+  schema: z.object({
+    title: z.string(),
+    link: z.string(),
+    slug: z.string(),
+    description: z.string(),
+    tag: z.string(),
+    content: z.string().optional()
   })
+})
 
 
 const mainLink = linkZodDefinition.and(
@@ -40,7 +44,7 @@ const mainLink = linkZodDefinition.and(
 );
 
 export const collections = {
-  content: defineCollection({
+  content: defineCollection(asOgImageCollection({
     type: 'page',
     source: {
       include: '**/**.md',
@@ -63,7 +67,7 @@ export const collections = {
         }).optional(),
       })
     })
-  }),
+  })),
   navigation: defineCollection({
     type: 'data',
     source: 'nav/**.yml',
@@ -95,7 +99,7 @@ export const collections = {
       }))
     })
   }),
-  blog: defineCollection({
+  blog: defineCollection(asOgImageCollection({
     type: 'page',
     source: 'blogs/**/**.md',
     schema: z.object({
@@ -138,7 +142,7 @@ export const collections = {
         })
       })
     })
-  }),
+  })),
   tags: BASE_TAG(),
   resources: BASE_CONTENT(),
   saas_tags: BASE_TAG('saas-tags/**.yml'),

@@ -19,6 +19,9 @@ const { data: resources } = await useAsyncData(`resources-${route.params.slug}`,
     queryCollection('resources').where('tag', '=', route.params.slug).all()
 );
 const seo = {
+    htmlAttrs: {
+        lang: 'en',  
+    },
     title: page.value?.label || 'Here are the most popular resources for developers',
     description: page.value?.label || 'Here are the most popular resources for developers',
     meta: [
@@ -81,7 +84,6 @@ defineOgImageComponent('BlogOgImage', {
     headline: 'Tags',
 })
 
-
 const convertTitleToSlug = (title: string) => {
     return title.toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
@@ -114,7 +116,7 @@ const HandleNavigate = (link: string) => {
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-20">
             <ShinyCard v-for="{ link, title, slug, description, tag, stem } in resources" :key="slug">
-                <NuxtLink :to="`/resource/${convertTitleToSlug(title)}`">
+                <NuxtLink :to="`/resource/${convertTitleToSlug(title)}`" :title="title">
                     <UiCard class="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden group/hoverimg ">
                         <UiCardHeader class="p-1 rounded-sm">
                             <section>
@@ -134,7 +136,7 @@ const HandleNavigate = (link: string) => {
                             <section class="text-left mt-auto flex justify-between">
                                 <!-- Only show max 10 letters -->
                                 <UiBadge variant="secondary" size="sm" :title="tag">{{ tag.slice(0, 10) }}...</UiBadge>
-                                <UiButton class="z-10" @click.prevent="HandleNavigate(link)">
+                                <UiButton class="z-10" @click.prevent="HandleNavigate(link)" :title="title">
                                     <Icon name="lucide:external-link" /> View
                                 </UiButton>
                             </section>

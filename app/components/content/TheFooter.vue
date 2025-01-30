@@ -24,12 +24,10 @@ const { data: site } = await useAsyncData("meta_site", () =>
     <div class="p-10 bg-muted/50 dark:bg-card border rounded-2xl">
       <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
         <div class="col-span-full xl:col-span-2">
-          <a href="#" class="flex font-bold items-center">
-            <NuxtLink v-if="site" href="/" class="font-bold text-lg flex items-center">
-              <NuxtImg :src="site.siteMeta.logo" :alt="site.siteMeta.logoAlt" class="w-64 rounded-full" width="160"
-                height="60" />
-            </NuxtLink>
-          </a>
+          <NuxtLink href="/" class="font-bold text-lg flex items-center" aria-label="Home" title="Home">
+            <NuxtImg :src="site?.siteMeta.logo" :alt="site?.siteMeta.logoAlt" class="w-64 rounded-full" width="160"
+              height="60" />
+          </NuxtLink>
         </div>
 
         <div class="flex flex-col gap-2 " v-for="{ title, links } in data?.footerLinks" :key="title">

@@ -11,14 +11,14 @@
  * @todo [✔] Update the typescript.
  */
 const router = useRouter();
-const { data } = await useAsyncData(`${router.currentRoute.value.path}`, () =>
+const { data } = await useAsyncData(`${router.currentRoute.value.path}-blog-hero`, () =>
     queryCollection('blog').path(router.currentRoute.value.path)
         .select('title', 'description', 'image', 'publishedAt', 'author')
         .first())
 </script>
 
 <template>
-    <section class="space-y-12 md:space-y-20" v-if="data">
+    <section class="space-y-12 md:space-y-20" v-if="data" v-motion-fade-visible-once>
         <div class="mx-auto max-w-3xl px-8">
             <div class="pt-12 ">
                 <div class="flex flex-col justify-center items-center space-y-3 md:space-y-6 relative">
@@ -37,7 +37,8 @@ const { data } = await useAsyncData(`${router.currentRoute.value.path}`, () =>
                             <section class="grid">
                                 <span class="dark:text-white/70">{{ data.author.name }}</span>
                                 <span class="dark:text-white/30 text-sm">{{ data.author.role }}</span>
-                                <NuxtLink :href="data.author.social" target="_blank" class="dark:text-white/30 text-sm">
+                                <NuxtLink :title="data.author.social" :href="data.author.social" target="_blank"
+                                    class="dark:text-white/30 text-sm">
                                     {{ data.author.social }}
                                 </NuxtLink>
                             </section>

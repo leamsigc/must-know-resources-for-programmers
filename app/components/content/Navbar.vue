@@ -11,8 +11,6 @@
  * @todo [✔] Update the typescript.
  */
 
-const mode = useColorMode();
-
 const isOpen = ref<boolean>(false);
 
 const { data } = await useAsyncData("header_links", () =>
@@ -27,11 +25,7 @@ const { data: site } = await useAsyncData("meta_site", () =>
 
 <template>
   <section
-    class="w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-full mx-auto top-0 sticky border z-40 rounded-b-2xl flex justify-between items-center p-2 bg-card bg-blend-difference shadow-md"
-    :class="{
-      'shadow-light': mode.value === 'light',
-      'shadow-dark': mode.value === 'dark',
-    }">
+    class="w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-full mx-auto top-0 sticky border z-40 rounded-b-2xl flex justify-between items-center p-2 bg-card bg-blend-difference shadow-light dark:shadow-dark">
     <header
       class="w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-2xl mx-auto sticky z-40  flex justify-between items-center p-2 ">
       <NuxtLink v-if="site?.siteMeta" href="/" class="font-bold text-lg flex items-center" aria-label="Home">
@@ -49,7 +43,7 @@ const { data: site } = await useAsyncData("meta_site", () =>
             <div>
               <UiSheetHeader class="mb-4 ml-4">
                 <UiSheetTitle class="flex items-center">
-                  <NuxtLink href="/" class="flex items-center">
+                  <NuxtLink href="/" class="flex items-center" aria-label="Home" title="Home">
                     <NuxtImg v-if="site?.siteMeta" :src="site?.siteMeta.logo" :alt="site?.siteMeta.logoAlt"
                       class="w-40 rounded-full" width="160" height="60" />
                   </NuxtLink>
@@ -59,7 +53,7 @@ const { data: site } = await useAsyncData("meta_site", () =>
               <div v-if="data" class="flex flex-col gap-2">
                 <UiButton v-for="{ href, name } in data.headerLinks.ShortLinks" :key="name" as-child variant="ghost"
                   class="justify-start text-base">
-                  <NuxtLink :href="href" @click="isOpen = false">
+                  <NuxtLink :href="href" @click="isOpen = false" :title="name">
                     {{ name }}
                   </NuxtLink>
                 </UiButton>
@@ -82,7 +76,7 @@ const { data: site } = await useAsyncData("meta_site", () =>
             <template v-if="!menuLink.children">
               <UiNavigationMenuLink as-child>
                 <UiButton as-child variant="ghost" class="justify-start text-base">
-                  <NuxtLink :href="menuLink.href" prefetch>
+                  <NuxtLink :href="menuLink.href" prefetch :title="menuLink.name">
                     {{ menuLink.name }}
                   </NuxtLink>
                 </UiButton>
@@ -103,7 +97,7 @@ const { data: site } = await useAsyncData("meta_site", () =>
                     <ul class="flex w-full flex-col gap-2">
                       <li v-for="(child, k) in item.children" :key="k">
                         <UiNavigationMenuLink class="data-[active]:bg-muted/80" as-child v-if="child">
-                          <NuxtLink :to="child?.href"
+                          <NuxtLink :to="child?.href" :title="child?.name"
                             class="flex gap-4 rounded-md p-3 transition hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50">
                             <Icon v-if="child.icon" :name="child.icon" class="mt-px h-5 w-5 shrink-0 text-primary" />
                             <div class="flex flex-col gap-1.5 leading-none">
@@ -125,12 +119,13 @@ const { data: site } = await useAsyncData("meta_site", () =>
       </UiNavigationMenu>
 
       <div class="hidden lg:flex">
-        <ToggleTheme />
+        <LazyToggleTheme />
 
         <template v-if="data">
           <UiButton as-child size="sm" variant="ghost" :aria-label="action.label"
             v-for="action in data.headerLinks.Actions">
-            <NuxtLink :aria-label="action.label" :href="action.href" :target="action.target || ''" :prefetch="false">
+            <NuxtLink :title="action.name" :aria-label="action.label" :href="action.href" :target="action.target || ''"
+              :prefetch="false">
               <Icon :name="action.icon" v-if="action.icon" />
               {{ action.name }}
             </NuxtLink>
@@ -141,12 +136,4 @@ const { data: site } = await useAsyncData("meta_site", () =>
   </section>
 </template>
 
-<style scoped>
-.shadow-light {
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.085);
-}
-
-.shadow-dark {
-  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.141);
-}
-</style>
+<style scoped></style>

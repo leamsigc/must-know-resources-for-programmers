@@ -7,9 +7,9 @@ export default <Partial<Config>><unknown>{
   safelist: ["dark"],
   prefix: "",
   content: [
-    "../app/**/*.{vue,js,ts,jsx,tsx,md}",
-    "../content/**/*.{json,yml,md}",
-    "../formkit/**.{vue,js,ts,jsx,tsx,md}",
+    "./app/**/*.{vue,js,ts,jsx,tsx,md}",
+    "./content/**/*.{json,yml,md}",
+    "./formkit/**.ts",
   ],
   theme: {
     container: {
@@ -96,6 +96,10 @@ export default <Partial<Config>><unknown>{
         'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
 
       },
+      boxShadow: {
+        'light': "inset 0 0 5px rgba(0, 0, 0, 0.085)",
+        "dark": "inset 0 0 5px rgba(255, 255, 255, 0.141)"
+      }
     },
   },
   plugins: [animate, prose],
