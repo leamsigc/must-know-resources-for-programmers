@@ -61,7 +61,7 @@ export default defineNuxtConfig({
   ],
   site: {
     url: 'https://must-know-resources-for-programmers.giessen.dev',
-    name: 'Must Know Resources for Programmers by Giessen Dev',
+    name: 'Must Know Resources for Developers by Giessen Dev',
     description: 'A comprehensive collection of essential resources, tools, and guides for programmers and developers at all skill levels.',
   },
   sitemap: {
@@ -71,7 +71,7 @@ export default defineNuxtConfig({
   },
   seo: {
     meta: {
-      description: 'Must Know Resources for Programmers by Giessen Dev- A comprehensive collection of essential resources, tools, and guides for programmers and developers at all skill levels.',
+      description: 'Must Know Resources for Developers by Giessen Dev- A comprehensive collection of essential resources, tools, and guides for programmers and developers at all skill levels.',
       themeColor: [
         { content: '#18181b', media: '(prefers-color-scheme: dark)' },
         { content: 'white', media: '(prefers-color-scheme: light)' },
@@ -95,8 +95,8 @@ export default defineNuxtConfig({
     }
   },
   content: {
-    studio: {
-      enabled: true
+    preview: {
+      api: 'https://api.nuxt.studio'
     },
     build: {
       pathMeta: {

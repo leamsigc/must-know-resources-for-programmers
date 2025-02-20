@@ -2,7 +2,7 @@ import { defineCollection } from '@nuxt/content'
 import { z } from 'zod'
 
 
-import { asOgImageCollection } from 'nuxt-og-image/content'
+import { asSeoCollection } from '@nuxtjs/seo/content'
 
 const linkZodDefinition = z.object({
   name: z.string(),
@@ -12,7 +12,7 @@ const linkZodDefinition = z.object({
   icon: z.string().optional(),
   target: z.string().optional()
 })
-const BASE_TAG = (source = 'tags/**.yml') => defineCollection({
+const BASE_TAG = (source = 'tags/**.yml') => defineCollection(asSeoCollection({
   source,
   type: 'data',
   schema: z.object({
@@ -20,8 +20,8 @@ const BASE_TAG = (source = 'tags/**.yml') => defineCollection({
     label: z.string(),
     slug: z.string()
   })
-});
-const BASE_CONTENT = (source = 'resources/**.yml') => defineCollection({
+}));
+const BASE_CONTENT = (source = 'resources/**.yml') => defineCollection(asSeoCollection({
   type: 'data',
   source,
   schema: z.object({
@@ -32,7 +32,7 @@ const BASE_CONTENT = (source = 'resources/**.yml') => defineCollection({
     tag: z.string(),
     content: z.string().optional()
   })
-})
+}));
 
 
 const mainLink = linkZodDefinition.and(
@@ -44,7 +44,7 @@ const mainLink = linkZodDefinition.and(
 );
 
 export const collections = {
-  content: defineCollection(asOgImageCollection({
+  content: defineCollection(asSeoCollection({
     type: 'page',
     source: {
       include: '**/**.md',
@@ -99,7 +99,7 @@ export const collections = {
       }))
     })
   }),
-  blog: defineCollection(asOgImageCollection({
+  blog: defineCollection(asSeoCollection({
     type: 'page',
     source: 'blogs/**/**.md',
     schema: z.object({

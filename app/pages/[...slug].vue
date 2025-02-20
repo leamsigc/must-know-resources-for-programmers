@@ -19,6 +19,7 @@ const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection(collectionType).path(route.path).first()
 })
 useHead(page.value?.head || {})
+useSeoMeta(page.value?.seo || {}) 
 
 if (page.value?.ogImage) {
   defineOgImage(page.value.ogImage)

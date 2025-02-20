@@ -56,11 +56,6 @@ const seo = {
             content: page.value?.label || 'The best Saas Templates from Free and Open Source to Paid starter kits',
         },
         {
-            hid: 'twitter:image',
-            name: 'twitter:image',
-            content: '/logo.png',
-        },
-        {
             hid: 'twitter:url',
             name: 'twitter:url',
             content: `https://must-know-resources-for-programmers.com/saas-tags/${route.params.slug}`,
@@ -79,6 +74,9 @@ const seo = {
 }
 
 useHead(seo)
+useSeoMeta({
+    robots: 'index, follow',
+})
 defineOgImageComponent('BlogOgImage', {
     ...seo,
     headline: 'Saas Templates',

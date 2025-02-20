@@ -57,11 +57,6 @@ const seo = {
             content: (page.value?.description + ' ' + page.value?.tag) || `The best saas starter kid for ${routeSlug}`,
         },
         {
-            hid: 'twitter:image',
-            name: 'twitter:image',
-            content: '/logo.png',
-        },
-        {
             hid: 'twitter:url',
             name: 'twitter:url',
             content: `https://must-know-resources-for-programmers.com/saas-templates/${routeSlug}`,
@@ -80,6 +75,9 @@ const seo = {
 }
 
 useHead(seo)
+useSeoMeta({
+    robots: 'index, follow',
+})
 defineOgImageComponent('BlogOgImage', {
     ...seo,
     headline: page.value?.tag || 'Saas Templates',

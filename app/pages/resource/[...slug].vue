@@ -57,11 +57,6 @@ const seo = {
             content: page.value?.description || `The best Resource for ${routeSlug}`,
         },
         {
-            hid: 'twitter:image',
-            name: 'twitter:image',
-            content: '/logo.png',
-        },
-        {
             hid: 'twitter:url',
             name: 'twitter:url',
             content: `https://must-know-resources-for-programmers.com/resource/${routeSlug}`,
@@ -80,6 +75,10 @@ const seo = {
 }
 
 useHead(seo)
+useSeoMeta({
+    robots: 'index, follow',
+})
+
 defineOgImageComponent('BlogOgImage', {
     ...seo,
     headline: 'Resources',

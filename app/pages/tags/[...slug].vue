@@ -56,11 +56,6 @@ const seo = {
             content: page.value?.label || 'Here are the most popular resources for developers',
         },
         {
-            hid: 'twitter:image',
-            name: 'twitter:image',
-            content: '/logo.png',
-        },
-        {
             hid: 'twitter:url',
             name: 'twitter:url',
             content: `https://must-know-resources-for-programmers.com/tags/${route.params.slug}`,
@@ -79,6 +74,11 @@ const seo = {
 }
 
 useHead(seo)
+useSeoMeta({
+    robots: 'index, follow',
+    title: page.value?.label || 'Best resources for developers',
+    description: page.value?.label || ' Most popular resources for developers',
+})
 defineOgImageComponent('BlogOgImage', {
     ...seo,
     headline: 'Tags',
