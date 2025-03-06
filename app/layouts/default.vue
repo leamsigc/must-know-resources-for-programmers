@@ -18,6 +18,7 @@
       <Navbar />
       <slot />
       <TheFooter v-motion-fade-visible-once />
+      <LazyBannerPromo />
     </UiToastProvider>
   </main>
 </template>
