@@ -1,0 +1,48 @@
+{
+    "url": "https://www.nuxtstarter.ai/",
+    "title": "NuxtStarterAI",
+    "creator": "Nuxt Starter AI",
+    "demo_url": "",
+    "og_image_url": "https://nuxtstarter.ai/opengraph-image.png?10bdb1fd2f17db15",
+    "main_features": [
+        "Payments",
+        "Authentication",
+        "SEO",
+        "Database",
+        "AI",
+        "Style",
+        "Emails"
+    ],
+    "featured_images": [
+        "https://www.nuxtstarter.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnuxt-starter-ai-h.efc15fa9.png&w=384&q=75",
+        "https://www.nuxtstarter.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnext-js.a0e522a2.png&w=384&q=75",
+        "https://www.nuxtstarter.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnext-starter-ai-h.8829829d.png&w=640&q=75",
+        "https://www.nuxtstarter.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Freact-native-starter-ai-h.540d590e.png&w=640&q=75",
+        "https://www.nuxtstarter.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsketch-logo-ai-h.13137b2c.png&w=640&q=75"
+    ],
+    "tech_stack_table": [
+        {
+            "Technology": "Nuxt.js",
+            "Description": "Framework for server-rendered Vue.js applications"
+        },
+        {
+            "Technology": "Tailwind CSS",
+            "Description": "Utility-first CSS framework for styling"
+        },
+        {
+            "Technology": "Supabase",
+            "Description": "Open-source Firebase alternative for database management"
+        },
+        {
+            "Technology": "Stripe",
+            "Description": "Payment processing platform"
+        },
+        {
+            "Technology": "Lemon Squeezy",
+            "Description": "E-commerce platform for selling digital products"
+        }
+    ],
+    "feature_breakdown": {},
+    "small_description": "NuxtStarterAI: All in one NuxtJs boilerplate for your next startup. Nuxt.js, Tailwind CSS, Supabase, Stripe, Lemon Squeezy, and more. already integrated!",
+    "emoji_with_features": "💰🚀📈🎨🌊"
+}

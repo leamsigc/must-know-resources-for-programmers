@@ -34,6 +34,27 @@ const BASE_CONTENT = (source = 'resources/**.yml') => defineCollection(asSeoColl
   })
 }));
 
+const CONTENT_SCHEMA = (source = 'resources/**.yml') => defineCollection(asSeoCollection({
+  type: 'data',
+  source,
+  schema: z.object({
+    title: z.string(),
+    url: z.string(),
+    demo_url: z.string(),
+    og_image_url: z.string(),
+    small_description: z.string(),
+    main_features: z.array(z.string()),
+    feature_breakdown: z.object({}), // Currently no defined properties
+    emoji_with_features: z.string(),
+    tech_stack_table: z.array(z.object({
+      Description: z.string(),
+      Technology: z.string(),
+    })), // Objects without specific properties
+    featured_images: z.array(z.string()),
+    creator: z.string(),
+  })
+}));
+
 
 const mainLink = linkZodDefinition.and(
   z.object({
@@ -146,5 +167,6 @@ export const collections = {
   tags: BASE_TAG(),
   resources: BASE_CONTENT(),
   saas_tags: BASE_TAG('saas-tags/**.yml'),
-  saas_templates: BASE_CONTENT('saas-templates/**.yml')
+  saas_templates: BASE_CONTENT('saas-templates/**.yml'),
+  sass_templates_content: CONTENT_SCHEMA('saas-templates-content/**.json')
 }

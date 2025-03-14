@@ -19,6 +19,12 @@ const { data: page } = await useAsyncData(`saas-template-page-${routeSlug}`, () 
         .where('stem', '=', `saas-templates/${routeSlug}`).first()
 })
 
+const { data: templateContent } = await useAsyncData(`saas-template-content-${route.params.slug}`, () => {
+    return queryCollection('sass_templates_content')
+        .where('stem', '=', `saas-templates-content/${routeSlug}`).first()
+})
+console.log('templateContent', templateContent);
+
 const seo = {
     htmlAttrs: {
         lang: 'en',  
@@ -122,9 +128,89 @@ defineOgImageComponent('BlogOgImage', {
                     <NuxtImg loading="lazy" :alt="page?.title" width="1400" height="800" :src="`/${page?.stem}.png`"
                         class="h-auto0 w-full object-cover rounded-sm" />
                 </section>
+                <section class="container py-24 sm:py-32" v-motion-fade-visible-once v-if="templateContent">
+                    <h1 class="text-3xl md:text-4xl text-center font-bold"> {{ templateContent?.title }} {{ page.tag }}</h1>
+                    <h2 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8"> {{ templateContent?.emoji_with_features }}</h2>
+                    <p class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
+                        {{ templateContent?.small_description }}
+                    </p>
+                    <section class="my-10">   
+                        <UiBadge v-for="feature in templateContent?.main_features" :key="feature" class="mr-2">
+                            {{ feature }}
+                        </UiBadge>
+                    </section>
+                    
+                    <NuxtImg loading="lazy" :alt="templateContent?.title" width="800" height="600" :src="templateContent?.og_image_url"
+                        class="object-cover rounded-sm shadow-lg aspect-square mx-auto" />
+                        
+                    <section class="grid grid-cols-3 gap-10 my-10">
+                        <NuxtImg loading="lazy" 
+                        :alt="page.tag + templateContent?.title" width="1400" height="800" 
+                        :src="img"    
+                        class="h-auto w-full object-cover rounded-sm " 
+                        v-for="img in templateContent?.featured_images"
+                        :key="img"
+                        />
+                    </section>
+                    <section class="grid lg:grid-cols-2 place-items-center lg:gap-24">
+                        <div>
+                            <h2 class="text-lg text-primary mb-2 tracking-wider">
+                                {{ page.tag }} {{ templateContent?.emoji_with_features }}
+                            </h2>
+
+                            <h3 class="text-3xl md:text-4xl font-bold mb-4">
+                                {{ templateContent?.title }}
+                            </h3>
+                            <p class="text-xl text-muted-foreground mb-8">
+                                {{ templateContent?.small_description }}
+                            </p>
+                            <p> {{ templateContent?.creator }}</p>
+                        </div>
+                        <section class="grid lg:grid-cols-2 gap-4 w-full">
+                            <ShinyCard v-for="(item, index) in templateContent?.tech_stack_table" :key="item.Technology" :show-bg="false">
+                                <UiCard
+                                class="bg-muted/50 dark:bg-card hover:bg-background dark:hover:bg-background transition-all delay-75 group/number h-full">
+                                    <UiCardHeader>
+                                        <div class="flex justify-between">
+                                            <span
+                                            class="text-5xl text-muted-foreground/15 font-medium transition-all delay-75 group-hover/number:text-muted-foreground/30">
+                                            0{{ index + 1 }}
+                                        </span>
+                                    </div>
+                                    
+                                    <UiCardTitle>
+                                        {{ item.Technology }}
+                                    </UiCardTitle>
+                                    </UiCardHeader>
+                                    
+                                    <UiCardContent class="text-muted-foreground">
+                                        {{ item.Description }}
+                                    </UiCardContent>
+                                </UiCard>
+                            </ShinyCard>
+                        </section>  
+                    </section>
+                    <section class="my-10">
+                        <NuxtLink :href="templateContent?.url" class="bg" target="_blank" :title="page?.title" :aria-label="page?.title">
+                            <UiButton size="lg" class="text-xl px-10 py-5">
+                                <Icon name="lucide:external-link" /> {{ templateContent?.title }}
+                            </UiButton>
+                        </NuxtLink>
+                    </section>
+
+                </section>
+                <section v-else class="container py-24 sm:py-32">
+                   
+                    <h1 class="text-3xl md:text-4xl text-center font-bold"> {{ page.title }} {{ page.tag }}</h1>
+                    <h2 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8"> {{ page.description }}</h2>
+
+                    <section class="grid place-content-center">
+                        <p>Details coming soon...</p>
+                    </section>
+                </section>
             </UiConfettiContainer>
         </div>
-        <UiSeparator show-buckle class="pt-0" />
+        <LazySaasTagsView />
     </section>
     <NotFoundView v-else />
 

@@ -1,0 +1,69 @@
+{
+    "url": "https://nuxt3-saas-boilerplate.netlify.app/",
+    "title": "SupaNuxt SaaS",
+    "creator": "SupaNuxt Team",
+    "demo_url": "",
+    "og_image_url": "https://nuxt3-saas-boilerplate.netlify.app/_nuxt/supanuxt_logo_200.896c0d73.png",
+    "main_features": [
+        "User Management",
+        "DB Schema Management",
+        "Config and Environment",
+        "State Management",
+        "Stripe Integration",
+        "Style System"
+    ],
+    "featured_images": [
+        "https://nuxt3-saas-boilerplate.netlify.app/_nuxt/supanuxt_logo_200.DaHp4opY.png",
+        "https://nuxt3-saas-boilerplate.netlify.app/_nuxt/landing_user_management.DBMlxSRc.jpeg",
+        "https://nuxt3-saas-boilerplate.netlify.app/_nuxt/landing_db_schema_management.Cto5R8rq.jpeg",
+        "https://nuxt3-saas-boilerplate.netlify.app/_nuxt/landing_config_environment.CQGlIHwn.jpeg",
+        "https://nuxt3-saas-boilerplate.netlify.app/_nuxt/landing_state_management.CKhPsqRm.jpeg",
+        "https://nuxt3-saas-boilerplate.netlify.app/_nuxt/landing_stripe_integration.7-Hbbsti.jpeg",
+        "https://nuxt3-saas-boilerplate.netlify.app/_nuxt/landing_style_system.IcBmFLQp.jpeg"
+    ],
+    "tech_stack_table": [
+        {
+            "Technology": "Nuxt 3",
+            "Description": "The Progressive Vue.js Framework"
+        },
+        {
+            "Technology": "Supabase",
+            "Description": "Auth including OAuth + Postgresql instance"
+        },
+        {
+            "Technology": "PostgreSQL",
+            "Description": "Relational Database"
+        },
+        {
+            "Technology": "Prisma",
+            "Description": "Schema management + Strongly typed client"
+        },
+        {
+            "Technology": "TRPC",
+            "Description": "Server/Client communication with Strong types, SSR compatible"
+        },
+        {
+            "Technology": "Pinia",
+            "Description": "State Store"
+        },
+        {
+            "Technology": "Stripe",
+            "Description": "Payments including Webhook integration"
+        },
+        {
+            "Technology": "Tailwind",
+            "Description": "A utility-first CSS framework"
+        },
+        {
+            "Technology": "Vue.js",
+            "Description": "The Progressive JavaScript Framework"
+        },
+        {
+            "Technology": "OpenAI",
+            "Description": "AI Completions including Note generation from prompt"
+        }
+    ],
+    "feature_breakdown": {},
+    "small_description": "With SupaNuxt SaaS, you can easily get started building your next web application. Our pre-configured tech stack and industry leading features make it easy to get up and running in no time.",
+    "emoji_with_features": "🛠️ User Management, 🗄️ DB Schema Management, ⚙️ Config and Environment, 📊 State Management, 💳 Stripe Integration, 🎨 Style System"
+}

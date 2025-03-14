@@ -1,0 +1,81 @@
+    {
+        "url": "https://saas-boilerplate.dev/",
+        "title": "The ultimate SaaS boilerplate | Saas-Boilerplate.dev | SaaS-Boilerplate.dev",
+        "creator": "Tanay Karnik",
+        "demo_url": "https://saas-boilerplate.dev/",
+        "og_image_url": "https://saas-boilerplate.dev/favicon.ico?v=3",
+        "main_features": [
+            "Modular Architecture",
+            "Developer Experience",
+            "TypeScript",
+            "Stripe and Paddle Payments",
+            "Production Ready",
+            "Infrastructure as Code (IaC)",
+            "AI Demos",
+            "CI/CD and Automated Testing",
+            "Deploy to AWS/Cloudflare/Vercel/Hetzner",
+            "No Vendor Lock-In",
+            "SQLite/D1/PostgresSQL",
+            "Async Jobs",
+            "Prisma ORM",
+            "Emails",
+            "Magic Links and Social Sign In",
+            "Enterprise-Grade RBAC",
+            "Team Management and Invites",
+            "Billing and Subscriptions",
+            "Beautiful UI",
+            "SEO Optimized",
+            "Internationalization"
+        ],
+        "featured_images": [
+            "https://saas-boilerplate.dev/static/nuxt-light.svg",
+            "https://saas-boilerplate.dev/static/nuxt-dark.svg",
+            "https://saas-boilerplate.dev/static/sst-light.svg",
+            "https://saas-boilerplate.dev/static/sst-dark.svg"
+        ],
+        "tech_stack_table": [
+            {
+                "Technology": "Nuxt",
+                "Description": "A framework for building server-rendered Vue.js applications."
+            },
+            {
+                "Technology": "TypeScript",
+                "Description": "A typed superset of JavaScript that compiles to plain JavaScript."
+            },
+            {
+                "Technology": "Stripe",
+                "Description": "A payment processing platform."
+            },
+            {
+                "Technology": "Paddle",
+                "Description": "A payment service provider."
+            },
+            {
+                "Technology": "Prisma",
+                "Description": "An ORM for Node.js and TypeScript."
+            },
+            {
+                "Technology": "AWS",
+                "Description": "Amazon Web Services, a cloud computing platform."
+            },
+            {
+                "Technology": "Cloudflare",
+                "Description": "A web performance and security company."
+            },
+            {
+                "Technology": "Vercel",
+                "Description": "A platform for frontend frameworks and static sites."
+            },
+            {
+                "Technology": "SQLite",
+                "Description": "A C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database."
+            },
+            {
+                "Technology": "PostgresSQL",
+                "Description": "An open-source relational database."
+            }
+        ],
+        "feature_breakdown": {},
+        "small_description": "The best Nuxt SaaS Boilerplate.",
+        "emoji_with_features": "🛠️ Modular Architecture, 👨‍💻 Developer Experience, 📜 TypeScript, 💳 Stripe and Paddle Payments, 🚀 Production Ready, 🏗️ Infrastructure as Code (IaC), 🤖 AI Demos, 🔄 CI/CD and Automated Testing, ☁️ Deploy to AWS/Cloudflare/Vercel/Hetzner, 🔒 No Vendor Lock-In, 🗄️ SQLite/D1/PostgresSQL, ⏳ Async Jobs, 🛠️ Prisma ORM, 📧 Emails, 🔑 Magic Links and Social Sign In, 🛡️ Enterprise-Grade RBAC, 👥 Team Management and Invites, 💰 Billing and Subscriptions, 🎨 Beautiful UI, 📈 SEO Optimized, 🌍 Internationalization"
+    }
