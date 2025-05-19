@@ -13,7 +13,7 @@
 const { data } = await useAsyncData("footer_links", () =>
   queryCollection("navigation").where('stem', '=', 'nav/links').first()
 );
-const { data: site } = await useAsyncData("meta_site", () =>
+const { data: site } = await useAsyncData("meta_site_footer", () =>
   queryCollection("navigation").where('stem', '=', 'nav/siteMeta').first()
 );
 
