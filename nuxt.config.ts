@@ -64,11 +64,6 @@ export default defineNuxtConfig({
     name: 'Must Know Resources for Developers by Giessen Dev',
     description: 'A comprehensive collection of essential resources, tools, and guides for programmers and developers at all skill levels.',
   },
-  sitemap: {
-    sources: [
-      '/api/__sitemap__/urls'
-    ]
-  },
   seo: {
     meta: {
       description: 'Must Know Resources for Developers by Giessen Dev- A comprehensive collection of essential resources, tools, and guides for programmers and developers at all skill levels.',
@@ -91,7 +86,7 @@ export default defineNuxtConfig({
     report: {
       // generate both a html and markdown report
       html: false,
-      markdown: true,
+      markdown: false,
     }
   },
   content: {
@@ -118,5 +113,10 @@ export default defineNuxtConfig({
         }
       }
     }
+  },
+  icon: {
+    serverBundle: {
+      externalizeIconsJson: true,
+    },
   }
 })

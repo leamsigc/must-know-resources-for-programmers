@@ -1,0 +1,10 @@
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - maplibre-gl
+  - puppeteer
+onlyBuiltDependencies:
+  - better-sqlite3
+  - sharp
+  - unrs-resolver
+  - vue-demi
