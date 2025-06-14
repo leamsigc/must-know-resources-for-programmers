@@ -70,8 +70,8 @@ async function scanDirectory(currentPath, baseDir) {
             const urlPath = relativePath
                 .replace(/index\.html$/, '')
                 .replace(/\.html$/, '')
-                .replace(/^\//, '')
-                .replace(/\/$/, '');         // Removes trailing "/" if it's the result of removing "index.html"
+                .replace(/^\//, '');
+            // .replace(/\/$/, '');         // Removes trailing "/" if it's the result of removing "index.html"
 
             urls.push({
                 loc: `${BASE_URL}/${urlPath}`,
