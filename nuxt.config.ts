@@ -74,7 +74,7 @@ export default defineNuxtConfig({
     },
   },
   sitemap: {
-
+    enabled: true
   },
   image: {
     quality: 75,
@@ -98,7 +98,7 @@ export default defineNuxtConfig({
     },
     build: {
       pathMeta: {
-        forceLeadingSlash: false
+        forceLeadingSlash: true
       },
       markdown: {
         highlight: {
