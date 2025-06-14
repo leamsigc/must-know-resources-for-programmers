@@ -60,6 +60,7 @@ export default defineNuxtConfig({
     }
   ],
   site: {
+    trailingSlash: true,
     url: 'https://must-know-resources-for-programmers.giessen.dev',
     name: 'Must Know Resources for Developers by Giessen Dev',
     description: 'A comprehensive collection of essential resources, tools, and guides for programmers and developers at all skill levels.',
