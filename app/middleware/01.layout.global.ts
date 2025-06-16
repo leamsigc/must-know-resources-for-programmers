@@ -1,4 +1,3 @@
-import { defineNuxtRouteMiddleware } from "#app";
 import type { LayoutKey } from "#build/types/layouts";
 
 export default defineNuxtRouteMiddleware(async (to) => {

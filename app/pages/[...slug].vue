@@ -18,7 +18,6 @@ const collectionType = route.path.startsWith('/blogs/') ? 'blog' : 'content'
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection(collectionType).path(route.path).first()
 })
-console.log('Path', route.path);
 
 useHead(page.value?.head || {})
 useSeoMeta(page.value?.seo || {})
